@@ -1,0 +1,1 @@
+alert("You loaded test.js from images");

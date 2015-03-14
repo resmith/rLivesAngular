@@ -1,0 +1,19 @@
+<h2> Image Upload </h2>
+<div id="imageForm" class="panel" ng-controller="defaultCtrl">
+    <form name="imageForm" novalidate ng-submit="addimage(newimage)" >
+        <md-input-container>
+            <label>Name:</label>
+            <input name="imageName" type="text" class="form-control" md-minlength="4" md-maxlength="256"
+                   required ng-model="newUser.email">
+            <div ng-messages="imageForm.imageName.$error" ng-show="imageForm.imageName.$dirty">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="md-maxlength">That's too long!</div>
+                <div ng-message="minlength">That's too short!</div>
+            </div>
+        </md-input-container>
+
+
+        <button type="submit" class="btn btn-primary btn-block"
+                ng-disabled="imageForm.$invalid">Save</button>
+    </form>
+</div>

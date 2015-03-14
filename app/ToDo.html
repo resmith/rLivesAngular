@@ -1,0 +1,14 @@
+
+
+- Try out foundation.css versus BootStrap
+
+- Change to Board Type to dynamically pull the list - not hardcoded
+
+
+- Board_List - convert type and permissions from code to english
+Change from
+    <td>{{board.type}}</td>
+    <td>{{board.boardPermissions }}</td>
+To
+    <td>{{board.type | typeFltr }}</td>
+    <td>{{board.boardPermissions | boardPermissionsFltr}}</td>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title>RLives</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <!--CSS Styling-->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700'>
+    <link rel='stylesheet' href="assets/bootstrap/css/bootstrap.css">
+    <link rel='stylesheet' href="assets/bootstrap/css/bootstrap-theme.css">
+      <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="app.css"/>
+  </head>
+<style>
+</style>
+  <body ng-app="myApp" ng-strict-di layout="column">
+
+      <!--The header-->
+      <div ng-include src="'./partials/header.html'" ></div>
+
+  <div flex layout="row">
+
+      <!--The left nav-->
+      <div flex="10">
+        <div ng-include src="'./partials/leftnav.html'"></div>
+      </div>
+
+
+       <md-content flex="90" class="md-padding view-animate-container md-content">
+           <div  ui-view class="container slide" ></div>
+       </md-content>
+
+      <!--<div  layout="column" layout-align="space-around start" class="well" ui-view></div>-->
+
+  </div>
+    <!--Angular Components-->
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+  <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
+  <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
+
+    <!--Application Components-->
+  <script type="text/javascript" src="./app.js"></script>
+  <script type="text/javascript" src="./components/board/board_controller.js"></script>
+
+  </body>
+</html>

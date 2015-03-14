@@ -1,0 +1,73 @@
+<md-sidenav md-is-locked-open="$media('gt-sm')"
+            class="md-whiteframe-z2 left-nav"
+            md-component-id="left"
+            layout="column"
+            layout-align="space-between start"
+            background-color="red"
+        >
+
+
+
+
+<script type="text/javascript" src="./components/board/board_controller.js"></script>
+<h2> Define Board </h2>
+
+<form name="BoardForm" novalidate ng-submit="addBoard(newBoard)" ng-controller="defaultCtrl">
+
+    <md-input-container>
+        <label>Name</label>
+        <div class="field">
+            <input name="boardName" type="text" class="form-control" md-minlength="4" md-maxlength="256"
+                   required ng-model="newBoard.name">
+            <div ng-messages="boardForm.boardName.$error" ng-show="boardForm.boardName.$dirty">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="md-maxlength">That's too long!</div>
+                <div ng-message="minlength">That's too short!</div>
+            </div>
+        </div>
+    </md-input-container>
+
+    <!--
+        <md-select ng-model="newBoard.type">
+            <md-select-label>Select a board type</md-select-label>
+            <md-option ng-value="code" ng-repeat="{key, value} in boardTypes">{{ name }}</md-option>
+            <div ng-messages="boardForm.boardType.$error" ng-show="boardForm.boardPermissions.$dirty">
+                <div ng-message="required">This is required!</div>
+            </div>
+        </md-select>
+    -->
+    <div class="label">Board Type</div>
+    <div class="field">
+        <md-select ng-model="newBoard.type">
+            <md-select-label>Select a board type</md-select-label>
+            <md-option ng-value="code" ng-repeat="(key, value) in boardTypes">{{ name }}</md-option>
+            <div ng-messages="boardForm.boardType.$error" ng-show="boardForm.boardPermissions.$dirty">
+                <div ng-message="required">This is required!</div>
+            </div>
+        </md-select>
+    </div>
+
+    <div class="label">Board Permissions</div>
+    <div class="field">
+        <md-radio-group ng-model="selected">
+            <md-radio-button value="open" aria-label="Allow everyone to view, upload & create">
+                Allow everyone to view, upload & create</md-radio-button>
+            <md-radio-button value="view" aria-label="Allow everyone to view">
+                Allow everyone to view</md-radio-button>
+            <md-radio-button value="defn" aria-label="Only allow what you define">
+                Only allow what you define</md-radio-button>
+        </md-radio-group>
+    </div>
+
+    <md-input-container>
+        <div class="label">Description:</div>
+        <div class="field">
+        <textarea name="boardDescription" type="text" class="form-control" md-minlength="0" md-maxlength="2056"
+                  required ng-model="newBoard.description"></textarea>
+        </div>
+    </md-input-container>
+
+    <md-button type="submit" class="md-raised md-primary">Save</md-button>
+
+    <!--ng-disabled="boardForm.$invalid"-->
+</form>

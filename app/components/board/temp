@@ -1,0 +1,54 @@
+myApp.controller("boardIndexCtrl", function($scope, Post) {
+    Post.query(function(data){
+        $scope.boards = data;
+    });
+});
+
+myApp.controller("boardShowCtrl", function($scope, Post) {
+    Post.get({ id: 1}, function(data) {
+        $scope.board = data;
+    });
+});
+
+myApp.controller("boardSaveCtrl", function($scope, Post) {
+    Post.save(data);
+});
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ ProAngular Ch8 - 06
+
+
+
+angular.module("sportsStore")
+    .constant("dataUrl", "http://localhost:5500/products")
+    .constant("orderUrl", "http://localhost:5500/orders")
+    .controller("sportsStoreCtrl", function ($scope, $http, $location,
+        dataUrl, orderUrl, cart) {
+
+        $scope.data = {
+        };
+
+        $http.get(dataUrl)
+            .success(function (data) {
+                $scope.data.products = data;
+            })
+            .error(function (error) {
+                $scope.data.error = error;
+            });
+
+        $scope.sendOrder = function (shippingDetails) {
+            var order = angular.copy(shippingDetails);
+            order.products = cart.getProducts();
+            $http.post(orderUrl, order)
+                .success(function (data) {
+                    $scope.data.orderId = data.id;
+                    cart.getProducts().length = 0;
+                })
+                .error(function (error) {
+                    $scope.data.orderError = error;
+                }).finally(function () {
+                    $location.path("/complete");
+                });
+        }
+    });

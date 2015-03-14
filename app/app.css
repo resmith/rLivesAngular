@@ -1,0 +1,256 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size:14px;
+  height:100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+/* Form  */
+form .ng-invalid-required.ng-dirty { background-color: lightpink; }
+form .ng-invalid-email.ng-dirty { background-color: lightgoldenrodyellow; }
+form .ng-valid.ng-dirty { background-color: lightgreen; }
+span.summary.ng-invalid { color: red; font-weight: bold; }
+span.summary.ng-valid { color: green; }
+div.error {color: red; font-weight: bold;}
+
+
+.my-md-select {
+    margin-top: 1em;
+}
+
+.input-label {
+    padding-left: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    color: #000000;
+    font-size: .9em;
+    font-style: normal;
+
+}
+
+.input-field {
+    padding-left: 1.5em;
+    padding-top: 0em;
+    padding-bottom: 1.5em;
+}
+.messageSuccessfull {
+    color: #008000;
+}
+
+.messageError {
+    color: red;
+}
+
+
+/* Toolbar area */
+
+.menu {
+  background-color: transparent;
+  border: none;
+  height: 38px;
+  margin: 16px;
+  width: 36px;
+}
+
+md-toolbar h1 {
+  margin: auto;
+}
+
+/* Sidenav area */
+
+md-list .md-button {
+  color: inherit;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+}
+  md-list .md-button.selected {
+    color: #03a9f4;
+  }
+
+  md-sidenav  md-list {
+    padding: 0px 0px 8px 0px;
+  }
+
+
+
+.message-input, .message-input .inline-label, .menu-bar {margin-bottom: 0;}
+.messages {border-right: 1px solid #eee;}
+.message-side-bar {border-left: 1px solid #eee; background-color: #DADBDD}
+.left-menu-header {background-color: #82563B;}
+h1 { font: bold 1.5em Georgia, times, "times New Roman", serif; text-align: center; margin: .5em 1em 1em 1em ; padding: 0; text-shadow: 0px 0px #FFFFFF;}
+
+
+.main-content {
+    md-content {
+display: block;
+    position: relative;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; }
+
+md-content[md-scroll-y] {
+overflow-y: auto;
+overflow-x: hidden; }
+md-content[md-scroll-x] {
+overflow-x: auto;
+overflow-y: hidden; }
+md-content.md-padding {
+padding: 8px; }
+
+@media (min-width: 600px) {
+md-content.md-padding {
+padding: 16px; }
+}
+}
+
+
+
+.left-nav {
+    background-color: bisque;
+}
+
+.left-nav-header {
+    background-color: #82563B;
+    vertical-align: left;
+}
+
+.left-nav-item {
+    position: relative;
+    width: 90px;
+    height: 55px;
+    border: 0px solid #ddd;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0px;
+    vertical-align: middle;
+    zoom:0.70;
+    transform: translateZ(0);
+    -webkit-transform: scale(0.70);
+    -moz-transform:scale(0.70);
+}
+
+/* Primary content area */
+
+#content {
+  overflow: hidden;
+}
+
+#content  {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+}
+
+#content .md-button.share {
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  height: 48px;
+  margin: 8px auto 16px 0;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+}
+
+#content md-icon.avatar {
+  margin-top: 5px;
+}
+
+#content .md-button.share > md-icon {
+  fill:black;
+  width:36px;
+  height:36px;
+}
+
+md-button.menuBtn > md-icon {
+  fill:white;
+  width:24px;
+  height:24px;
+}
+
+#content .md-button.share:active > md-icon {
+  background-color: #dadada;
+  border-radius: 75%;
+  padding:4px;
+  transition: all 100ms ease-out 30ms;
+}
+
+#content img {
+  display: block;
+  height: auto;
+  max-width: 500px;
+}
+
+/* Utils */
+
+.content-wrapper {
+  position: relative;
+}
+
+/* Typography support coming in 0.8.0 */
+
+md-toolbar h1 {
+  font-size: 1.250em;
+  font-weight: 400;
+}
+
+.avatar {
+  position: relative;
+  width: 128px;
+  height: 64px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0px;
+  vertical-align: middle;
+  zoom:0.70;
+  transform: translateZ(0);
+  -webkit-transform: scale(1.00);
+  -moz-transform:scale(0.70);
+}
+
+md-bottom-sheet  md-icon {
+  margin-right:20px;
+}
+
+span.name {
+  font-weight: bold;
+  font-size:1.1em;
+  padding-left:5px;
+}
+
+
+/*
+ CSS for animation of pulling in the main content
+ from https://github.com/angular-ui/ui-router/blob/master/sample/css/styles.css
+*/
+
+ .slide.ng-leave {
+     position: relative;
+ }
+.slide.ng-enter {
+    position: absolute;
+}
+.slide.ng-enter, .slide.ng-leave {
+    -webkit-transition: -webkit-transform 0.3s ease-in, opacity 0.3s ease-in;
+    -moz-transition: -moz-transform 0.3s ease-in, opacity 0.3s ease-in;
+    -o-transition: -o-transform 0.3s ease-in, opacity 0.3s ease-in;
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
+.slide.ng-enter, .slide.ng-leave.ng-leave-active {
+    -webkit-transform: scaleX(0.0001);
+    -o-transform: scaleX(0.0001);
+    transform: scaleX(0.0001);
+    opacity: 0;
+}
+.slide, .slide.ng-enter.ng-enter-active {
+    -webkit-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+

@@ -1,0 +1,39 @@
+<h2> Boards List </h2>
+
+<div class="panel-body" ng-controller="boardIndexCtrl">
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Permissions</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="board in boards">
+            <td>{{board.name}}</td>
+            <td>{{board.type}}</td>
+            <td>{{board.boardPermissions }}</td>
+            <td>{{board.description }}</td>
+            <td class="text-center">
+                <button class="btn btn-xs btn-primary"
+                        ng-click="deleteBoard(board)">
+                    Delete
+                </button>
+                <button class="btn btn-xs btn-primary"
+                        ng-click="editOrCreateBoard(board)">
+                    Edit
+                </button>
+                <increment board="board" property-name="price" restful="true"
+                           method-name="$save" />
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <button class="btn btn-primary" ui-sref="boards_list">Refresh</button>
+        <button class="btn btn-primary" ui-sref="board_create">New</button>
+    </div>
+</div>

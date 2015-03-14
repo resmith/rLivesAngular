@@ -1,0 +1,40 @@
+<div id="navigation" class="grid-block small-vertical medium-horizontal make-box navigation shrink align-left">
+    <div class="grid-content>"><a class="button square linear spin-cw" href="#">Navigation</a></div>
+    <div class="grid-content>"><a class="button square linear spin-cw" href="#">Navigation</a></div>
+    <div class="grid-content>"><a class="button square linear spin-cw" href="#">Navigation</a></div>
+</div>
+
+<div layout="column" class=" shrink make-box small-vertical medium-horizontal">
+    <div id="notifications" class="notifications grid-content">
+        <span class="alert label">Alert Label</span>
+     </div>
+
+    <div id="notifications" class="notifications grid-content">
+        <span class="warning label">Warning Label</span>
+
+   <div id="content" class="grid-content content make-box">
+    <button onclick="this.innerHTML='Made you change'">Click Me</button>
+
+    <form name="userForm">
+        <md-input-container>
+            <label>Last Name</label>
+            <input name="lastName" ng-model="lastName" required md-maxlength="10" minlength="4">
+            <div ng-messages="userForm.lastName.$error" ng-show="userForm.bio.$dirty">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="md-maxlength">That's too long!</div>
+                <div ng-message="minlength">That's too short!</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Biography</label>
+            <textarea name="bio" ng-model="biography" required md-maxlength="150"></textarea>
+            <div ng-messages="userForm.bio.$error" ng-show="userForm.bio.$dirty">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="md-maxlength">That's too long!</div>
+            </div>
+        </md-input-container>
+    </form>
+
+
+
+    <div ng-class="['ui-animation']" ui-view></div>
