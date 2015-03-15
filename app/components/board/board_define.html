@@ -1,19 +1,27 @@
-<form name="boardForm" novalidate ng-submit="createBoard(Board.board)" ng-controller="boardSaveCtrl as Board">
+<form name="boardForm" novalidate ng-submit="createBoard(board)" ng-controller="boardSaveCtrl as Board">
 
     <h2> Define Board: {{ board.name}} </h2>
 
-    <h3 class="{{Board.messageClass}}"> {{ Board.message }} </h3>
+    <h3 class="{{messageClass}}"> {{ message }} </h3>
 
     <div class="alert alert-danger" ng-show="Board.error">
         Error ({{Board.error.status}}). The product data was not loaded.
-        <a href="/app.html" class="alert-link">Click here to try again</a>
+        <a href="/index.html" class="alert-link">Click here to try again</a>
     </div>
+
+
+    <div class="" ng-show="saveSuccessfull">
+        You can enter a new board or
+        <md-button href="#/media" class="md-primary">Upload Media</md-button>
+    </div>
+
+
 
     <div class="input-label">Name</div>
     <div class="input-field">
         <md-input-container>
             <input name="boardName" type="text" class="form-control" minlength=4 maxlength="256" md-minlength=4 md-maxlength="256"
-                   required ng-model="Board.board.name">
+                   required ng-model="board.name">
             <div ng-messages="boardName.$error" ng-show="dForm.boardName.$dirty">
                 <div ng-message="required">This is required!</div>
                 <div ng-message="md-maxlength">That's too long!</div>
@@ -24,7 +32,7 @@
 
     <div class="input-label">Board Type</div>
     <div class="input-field">
-        <md-select data-ng-model="Board.board.type" name="board.type" required>
+        <md-select data-ng-model="board.type" name="board.type" required>
             <md-option data-ng-value="boardType.value" data-ng-repeat="boardType in boardTypes">{{ boardType.label }}</md-option>
         </md-select>
     </div>
@@ -34,7 +42,7 @@
 
     <div class="input-label">Board Permissions</div>
     <div class="input-field">
-        <md-radio-group ng-model="Board.board.boardPermissions" name="BoardPermissions" required>
+        <md-radio-group ng-model="board.boardPermissions" name="BoardPermissions" required>
             <md-radio-button value="open" aria-input-label="Allow everyone to view, upload & create">
                 Allow everyone to view, upload & create</md-radio-button>
             <md-radio-button value="view" aria-input-label="Allow everyone to view">
@@ -49,7 +57,7 @@
     <div class="input-field">
         <md-input-container>
             <textarea name="boardDescription" type="text" class="form-control" md-maxlength="2056"
-                     ng-model="Board.board.description"></textarea>
+                     ng-model="board.description"></textarea>
         </md-input-container>
     </div>
 

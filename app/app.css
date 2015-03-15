@@ -253,4 +253,18 @@ span.name {
     opacity: 1;
 }
 
-
+/* CSS for the grids - this appears on select_media */
+.gridListdemoBasicUsage md-whiteframe {
+    margin: 8px; }
+.gray-background {
+    background: #f5f5f5; }
+.green-background  {
+    background: #b9f6ca; }
+.yellow-background  {
+    background: #ffff8d; }
+.blue-background  {
+    background: #84ffff; }
+.purple-background  {
+    background: #b388ff; }
+.red-background  {
+    background: #ff8a80; }

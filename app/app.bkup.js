@@ -1,14 +1,25 @@
-angular.module('myApp.services',[]).
-    service('popupService',function($window){
-        this.showPopup=function(message){
-            return $window.confirm(message);
+var myApp = angular.module('myApp', ['ngMaterial', 'ngResource', 'ui.router','ngAnimate']);
+
+
+
+myApp.run(
+    [          '$rootScope', '$state', '$stateParams',
+        function ($rootScope,   $state,   $stateParams) {
+
+            // It's very handy to add references to $state and $stateParams to the $rootScope
+            // so that you can access them from any scope within your applications.For example,
+            // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
+            // to active whenever 'contacts.list' or one of its decendents is active.
+            $rootScope.$state = $state;
+            $rootScope.$stateParams = $stateParams;
         }
-    });
+    ]
+);
 
-var myApp = angular.module('myApp', ['ngMaterial', 'ngResource', 'ui.router','ngAnimate','myApp.services']);
 
-myApp.config(['$stateProvider', '$urlRouterProvider',
-    function($stateProvider, $urlRouterProvider) {
+
+
+myApp.controller("defaultCtrl", [ '$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     // For uirouter docs see https://github.com/angular-ui/ui-router
     // For any unmatched url, redirect to /state1
     $urlRouterProvider.otherwise("/home");
@@ -19,37 +30,15 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
             url: "/",
             templateUrl: "index.html"
         })
-        .state('register', {
-            url: "/register",
-            templateUrl: "/user/register.html"
-        })
-        .state('sign_in', {
-            url: "/signin",
-            templateUrl: "/user/sign_in.html"
+        .state('board_create', {
+            url: "/board",
+            templateUrl: "./components/board/board_define.html",
+            controller: 'boardCtrl'
         })
         .state('boards_list', {
             url: "/boards",
             templateUrl: "./components/board/boards_list.html",
-            controller: 'boardIndexCtrl'
-        })
-        .state('board_create', {
-            url: "/board",
-            templateUrl: "./components/board/board_define.html",
-            controller: 'boardSaveCtrl'
-        })
-        .state('board_edit', {
-            url: "/board/:boardId/edit",
-            templateUrl: "./components/board/board_define.html",
-            controller: 'boardSaveCtrl'
-        })
-        .state('board_show', {
-            url: "/board/:boardId",
-            templateUrl: "./components/board/board_show.html",
-            controller: 'boardShowCtrl'
-        })
-        .state('select_media', {
-            url: "/media",
-            templateUrl: "./components/media/select_media.html"
+            controller: 'boardCtrl'
         })
         .state('image_upload', {
             url: "/image",
@@ -72,10 +61,9 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         });
 }]);
 
-myApp.config(['$mdThemingProvider', '$mdIconProvider',
-        function($mdThemingProvider, $mdIconProvider){
 
-        $mdIconProvider
+myApp.controller("defaultCtrl",['$mdThemingProvider', '$mdIconProvider',function($mdThemingProvider, $mdIconProvider){
+    $mdIconProvider
         .defaultIconSet("./assets/svg/avatars.svg", 128)
         .icon("menu"    , "./assets/svg/menu.svg"        , 24)
         .icon("board"   , "./assets/svg/ic_folder_24px.svg"       , 24)
@@ -96,6 +84,7 @@ myApp.config(['$mdThemingProvider', '$mdIconProvider',
         .accentPalette('red');
 
 }]);
+
 
 myApp.controller("defaultCtrl", ['$scope', function($scope) {
 

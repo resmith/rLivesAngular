@@ -13,21 +13,18 @@
         </thead>
         <tbody>
         <tr ng-repeat="board in boards">
-            <td>{{board.name}}</td>
+<!--
+            <td ><a  href="#/board/{{board.id}}/edit"> {{board.name}}</a></td>
+-->
+            <td ><a  ui-sref="board_edit({ boardId: board.id})"> {{board.name}}</a></td>
+
             <td>{{board.type}}</td>
             <td>{{board.boardPermissions }}</td>
             <td>{{board.description }}</td>
             <td class="text-center">
-                <button class="btn btn-xs btn-primary"
-                        ng-click="deleteBoard(board)">
+                <button class="btn btn-xs btn-primary" ng-click="deleteBoard(board)">
                     Delete
                 </button>
-                <button class="btn btn-xs btn-primary"
-                        ng-click="editOrCreateBoard(board)">
-                    Edit
-                </button>
-                <increment board="board" property-name="price" restful="true"
-                           method-name="$save" />
             </td>
         </tr>
         </tbody>

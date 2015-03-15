@@ -1,0 +1,9 @@
+
+
+ function buildGridModel(tileTmpl){
+      var it, results = [ ];
+      for (var j=0; j<11; j++) {
+        it = angular.extend({},tileTmpl);    <<<<<<<<<<<<
+        it.icon  = it.icon + (j+1);
+        it.title = it.title + (j+1);
+
