@@ -131,6 +131,24 @@ padding: 16px; }
     -moz-transform:scale(0.70);
 }
 
+
+.right-nav-link {
+    font-size: 1.1em;
+    color: bisque;
+    position: relative;
+    width: 100px;
+    height: 55px;
+    border: 0px solid #ddd;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0px;
+    vertical-align: middle;
+    zoom:0.80;
+    transform: translateZ(0);
+    -webkit-transform: scale(0.70);
+    -moz-transform:scale(0.70);
+}
+
 /* Primary content area */
 
 #content {
