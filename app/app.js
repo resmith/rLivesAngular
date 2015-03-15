@@ -1,11 +1,13 @@
-angular.module('myApp.services',[]).
-    service('popupService',function($window){
+var myApp = angular.module('myApp', ['ngMaterial', 'ngResource', 'ui.router','ngAnimate']);
+/*
+
+myApp.service('popupService',function($window){
         this.showPopup=function(message){
             return $window.confirm(message);
         }
     });
+*/
 
-var myApp = angular.module('myApp', ['ngMaterial', 'ngResource', 'ui.router','ngAnimate','myApp.services']);
 
 myApp.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {

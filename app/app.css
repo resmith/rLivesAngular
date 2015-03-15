@@ -31,9 +31,17 @@ div.error {color: red; font-weight: bold;}
 }
 
 .input-field {
-    padding-left: 1.5em;
+    padding-left: 0em;
     padding-top: 0em;
-    padding-bottom: 1.5em;
+    padding-bottom: 0em;
+    padding-right: 0em;
+
+    margin-left: 1.5em;
+    margin-top: 0em;
+    margin-bottom: .5em;
+    margin-right: 1em;
+
+
 }
 .messageSuccessfull {
     color: #008000;
@@ -97,7 +105,7 @@ md-content[md-scroll-x] {
 overflow-x: auto;
 overflow-y: hidden; }
 md-content.md-padding {
-padding: 8px; }
+padding: 5px; }
 
 @media (min-width: 600px) {
 md-content.md-padding {
@@ -133,10 +141,10 @@ padding: 16px; }
 
 
 .right-nav-link {
-    font-size: 1.1em;
+    font-size: .7em;
     color: bisque;
     position: relative;
-    width: 100px;
+    width: 130px;
     height: 55px;
     border: 0px solid #ddd;
     display: inline-block;
