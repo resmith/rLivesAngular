@@ -1,22 +1,22 @@
 myApp = angular.module('myApp');
 
 
-myApp.factory("Board", function($resource ) {
+myApp.factory("BoardUrl", function($resource ) {
         return $resource("http://localhost:2403/boards/:id", {boardId: '@id'})
 });
 
 /* ---- boardIndexCtrl functions ----- */
 
-myApp.controller("boardIndexCtrl",function($scope, Board) {
+myApp.controller("boardIndexCtrl",function($scope, BoardUrl) {
 
-    Board.query(function (data) {
+    BoardUrl.query(function (data) {
         $scope.boards = data;
     });
 
 
     $scope.deleteBoard = function (board) {
         if (popupService.showPopup('Really delete?')) {
-            Board.$delete(function () {
+            BoardUrl.$delete(function () {
                 indx = boards.indexOf(board);
                 boards.splice(indx, 1);
             })
@@ -26,23 +26,23 @@ myApp.controller("boardIndexCtrl",function($scope, Board) {
 
         /*
          $scope.listBoards = function () {
-         Board.query(function (data) {
+         BoardUrl.query(function (data) {
          $scope.boards = data;
          })
          };
          */
 
 /*
-        Board.query(function (Board) {
-            $scope.board = Board;
+        BoardUrl.query(function (BoardUrl) {
+            $scope.board = BoardUrl;
         })
 */
 
 
-myApp.controller("boardSaveCtrl", function($scope, $stateParams, Board) {
+myApp.controller("boardSaveCtrl", function($scope, $stateParams, BoardUrl) {
     /* $scope.data = { boards: {}}; */
 
-        Board.get({id: $stateParams.boardId}, function(data) {
+        BoardUrl.get({id: $stateParams.boardId}, function(data) {
             $scope.board = data;
         });
 
@@ -56,10 +56,10 @@ myApp.controller("boardSaveCtrl", function($scope, $stateParams, Board) {
     ];
 
     $scope.createBoard = function (board) {
-        Board.save(board)
+        BoardUrl.save(board)
         .$promise
             .then(function (board) {
-                $scope.message = "Board " + board.name + " successfully saved!";
+                $scope.message = "BoardUrl " + board.name + " successfully saved!";
                 $scope.messageClass = "messageSuccessfull";
                 $scope.saveSuccessfull = true;
                 $scope.board = {};
@@ -76,16 +76,19 @@ myApp.controller("boardSaveCtrl", function($scope, $stateParams, Board) {
 
 
 
-myApp.controller("boardShowCtrl", function($scope, Board) {
-    Board.get({ id: 1}, function(data) {
+myApp.controller("boardShowCtrl", function($scope,  $stateParams, BoardUrl) {
+    BoardUrl.get({id: $stateParams.boardId}, function(data) {
         $scope.board = data;
     });
 });
 
+
+
+
 /*
     $scope.createBoard = function (board) {
         console.log("CreateBoard" );
-        console.log("Board=" + $scope.boardsResource(board) );
+        console.log("BoardUrl=" + $scope.boardsResource(board) );
         console.log("createBoard=" + $scope.boardsResource(board) );
         new $scope.boardsResource(board).$save().then(function(newBoard) {
             $scope.boards.push(newBoard);
@@ -120,7 +123,7 @@ myApp.controller("boardShowCtrl", function($scope, Board) {
 
 
 /*
- myApp.controller("boardIndexCtrl",["$scope", "Board",
+ myApp.controller("boardIndexCtrl",["$scope", "BoardUrl",
  function editOrCreateBoard(board) {
  $scope.currentBoard = board ? board : {};
  $scope.displayMode = "edit";

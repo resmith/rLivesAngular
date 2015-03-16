@@ -13,21 +13,23 @@
             <th>Type</th>
             <th>Permissions</th>
 -->
-            <th>Description</th>
             <th></th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="board in boards">
+        <tr ng-repeat="board in boards | orderBy: 'name'" >
 
-            <td ><a  ui-sref="board_edit({ boardId: board.id})"> {{board.name}}</a></td>
+            <td ><a  ui-sref="board_show({ boardId: board.id})" aria-label="Add Video to a Board"> {{board.name}}</a>
+                <md-tooltip md-direction="bottom">{{board.description }}</md-tooltip>
+            </td>
+
 
             <!--            <td>{{board.type}}</td>
                         <td>{{board.boardPermissions }}</td>
-            -->
-                        <td>{{board.description }}</td>
 
+                        <td>{{board.description }}</td>
+-->
             <td class="text-center">
 
                 <md-button  ui-sref="board_edit({ boardId: board.id})" aria-label="Edit the Board">

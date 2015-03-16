@@ -37,17 +37,17 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         .state('board_create', {
             url: "/board",
             templateUrl: "./components/board/board_define.html",
-            controller: 'boardSaveCtrl'
+            controller: 'boardSaveCtrl as Board'
         })
         .state('board_edit', {
             url: "/board/:boardId/edit",
             templateUrl: "./components/board/board_define.html",
-            controller: 'boardSaveCtrl'
+            controller: 'boardSaveCtrl as Board'
         })
         .state('board_show', {
             url: "/board/:boardId",
             templateUrl: "./components/board/board_show.html",
-            controller: 'boardShowCtrl'
+            controller: 'boardShowCtrl as Board'
         })
         .state('select_media', {
             url: "/media",

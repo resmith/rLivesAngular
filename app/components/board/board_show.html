@@ -1,0 +1,11 @@
+<h2> Show Board: {{ board.name}} </h2>
+
+<h3 class="{{messageClass}}"> {{ message }} </h3>
+
+<div class="alert alert-danger" ng-show="Board.error">
+    Error ({{Board.error.status}}). The product data was not loaded.
+    <a href="/index.html" class="alert-link">Click here to try again</a>
+</div>
+
+Board Name: {{board.name}}<br>
+Description: {{board.description}}<br>
