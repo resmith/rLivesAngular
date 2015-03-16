@@ -298,3 +298,13 @@ span.name {
     background: #b388ff; }
 .red-background  {
     background: #ff8a80; }
+
+
+/*  Tile Backgrounds for board types  */
+.tile-pers{ background: #f5f5f5; }
+.tile-fmly{ background: #b9f6ca; }
+.tile-frnd{ background: #ffff8d; }
+.tile-busn{ background: #84ffff; }
+.tile-schl{ background: #b388ff; }
+.tile-othr{ background: #ff8a80; }
+

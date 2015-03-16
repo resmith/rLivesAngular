@@ -1,0 +1,50 @@
+<h2> Boards List </h2>
+
+<div class="panel-body" ng-controller="boardIndexCtrl">
+    <div>
+        <md-button class="md-primary md-raised" ui-sref="boards_list">Refresh</md-button>
+        <md-button class="md-primary md-raised" ui-sref="board_create">New</md-button>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <!--
+                        <th>Type</th>
+                        <th>Permissions</th>
+            -->
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="board in boards | orderBy: 'name'" >
+
+            <td ><a  ui-sref="board_show({ boardId: board.id})" aria-label="Add Video to a Board"> {{board.name}}</a>
+                <md-tooltip md-direction="bottom">{{board.description }}</md-tooltip>
+            </td>
+
+
+            <!--            <td>{{board.type}}</td>
+                        <td>{{board.boardPermissions }}</td>
+
+                        <td>{{board.description }}</td>
+-->
+            <td class="text-center">
+
+                <md-button  ui-sref="board_edit({ boardId: board.id})" aria-label="Edit the Board">
+                    <md-tooltip md-direction="right">Edit the Board</md-tooltip>
+                    <md-icon md-svg-icon="edit"  class="left-nav-item">
+                    </md-icon></md-button>
+            </td>
+
+
+            <td class="text-center">
+                <button class="btn btn-xs btn-primary" ng-click="deleteBoard(board)">Delete</button>
+                <!--<md-button class="md-primary md-hue-1" font-size=".3em" ng-click="deleteBoard(board)">Delete</md-button>-->
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
