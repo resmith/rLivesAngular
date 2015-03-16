@@ -15,19 +15,28 @@
 -->
             <th>Description</th>
             <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="board in boards">
-<!--
-            <td ><a  href="#/board/{{board.id}}/edit"> {{board.name}}</a></td>
--->
+
             <td ><a  ui-sref="board_edit({ boardId: board.id})"> {{board.name}}</a></td>
 
             <!--            <td>{{board.type}}</td>
                         <td>{{board.boardPermissions }}</td>
             -->
                         <td>{{board.description }}</td>
+
+            <td class="text-center">
+
+                <md-button  ui-sref="board_edit({ boardId: board.id})" aria-label="Edit the Board">
+                    <md-tooltip md-direction="right">Edit the Board</md-tooltip>
+                    <md-icon md-svg-icon="edit"  class="left-nav-item">
+                    </md-icon></md-button>
+            </td>
+
+
             <td class="text-center">
                 <button class="btn btn-xs btn-primary" ng-click="deleteBoard(board)">Delete</button>
                 <!--<md-button class="md-primary md-hue-1" font-size=".3em" ng-click="deleteBoard(board)">Delete</md-button>-->

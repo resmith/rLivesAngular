@@ -90,12 +90,14 @@ myApp.config(['$mdThemingProvider', '$mdIconProvider',
         .icon("story"   , "./assets/svg/ic_text_format_24px.svg"    , 512)
         .icon("message" , "./assets/svg/ic_message_24px.svg"     , 512)
         .icon("person"  , "./assets/svg/ic_person_24px.svg"       , 512)
-        .icon("web"     , "./assets/svg/ic_language_48px.svg"       , 512);
+        .icon("web"     , "./assets/svg/ic_language_48px.svg"       , 512)
+
+        .icon("edit"     , "./assets/svg/ic_edit_48px.svg"       , 48);
 
 
     $mdThemingProvider.theme('default')
         .primaryPalette('brown')
-        .accentPalette('red');
+        .accentPalette('blue-grey');
 
 }]);
 
