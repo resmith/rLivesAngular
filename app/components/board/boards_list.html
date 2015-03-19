@@ -1,6 +1,11 @@
 <div layout="row" layout-align="space-between center">
     <h2> Boards List </h2>
-    <input ng-model="search.val" type="text" placeholder="Search">
+    <div class="input-field">
+        <md-select ng-model="search.type" name="search.type" placeholder="Type">
+            <md-option ng-value="boardType.value" data-ng-repeat="boardType in boardTypes">{{ boardType.label }}</md-option>
+        </md-select>
+    </div>
+    <input ng-model="search.val" type="text" placeholder="Filter">
 </div>
 
 <div class="panel-body" ng-controller="boardIndexCtrl">
@@ -11,7 +16,7 @@
             <md-grid-list md-cols="6"
                           md-row-height="4:3"  md-gutter="1%">
 
-                <span ng-repeat="board in boards | orderBy: 'name' | filter: search.val" >
+                <span ng-repeat="board in boards | orderBy: 'name' | filter: search.val |  filter:boardTypeMatch" >
                     {{ descLength = board.description.length;
                        colSpan = int(descLength / 256);
                        rowSpan = int(descLength / 80)
@@ -29,6 +34,7 @@
                             len2 {{ descLength }}
                             colSpan {{colSpan }}
                             rowSpan {{ rowSpan }}
+                            boardType {{board.type}}
                             {{board.description.substring(1, 80); }}
                         </md-content>
 
