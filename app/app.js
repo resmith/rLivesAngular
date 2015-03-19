@@ -92,7 +92,9 @@ myApp.config(['$mdThemingProvider', '$mdIconProvider',
         .icon("person"  , "./assets/svg/ic_person_24px.svg"       , 512)
         .icon("web"     , "./assets/svg/ic_language_48px.svg"       , 512)
 
-        .icon("edit"     , "./assets/svg/ic_edit_48px.svg"       , 48);
+        .icon("edit"     , "./assets/svg/ic_edit_48px.svg"       , 48)
+        .icon("delete"     , "./assets/svg/ic_delete_48px.svg"       , 48);
+
 
 
     $mdThemingProvider.theme('default')

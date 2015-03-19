@@ -1,41 +1,50 @@
-<h2> Boards List </h2>
+<div layout="row" layout-align="space-between center">
+    <h2> Boards List </h2>
+    <input ng-model="search.val" type="text" placeholder="Search">
+</div>
 
 <div class="panel-body" ng-controller="boardIndexCtrl">
-    <div>
-        <md-button class="md-primary md-raised" ui-sref="boards_list">Refresh</md-button>
-        <md-button class="md-primary md-raised" ui-sref="board_create">New</md-button>
-    </div>
 
+    <!--md-cols-sm="2" md-cols-md="4" md-cols-lg="8" md-cols-gt-lg="12"
+    md-row-height="4:3"  md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px"-->
 
-            <md-grid-list md-cols-sm="2" md-cols-md="4" md-cols-lg="8" md-cols-gt-lg="12"
-                          md-row-height="4:3"  md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px">
+            <md-grid-list md-cols="6"
+                          md-row-height="4:3"  md-gutter="1%">
 
-                <span ng-repeat="board in boards | orderBy: 'name'" >
-                    {{ $scope.descLength = board.description.length;
-                       $scope.colSpan = int(descLength / 256);
-                       $scope.rowSpan = int(descLength / 80)
+                <span ng-repeat="board in boards | orderBy: 'name' | filter: search.val" >
+                    {{ descLength = board.description.length;
+                       colSpan = int(descLength / 256);
+                       rowSpan = int(descLength / 80)
                     }}
 
                     <md-grid-tile  md-colspan-gt-sm="{{$scope.colSpan}}"
                                    md-rowspan-gt-sm="{{$scope.rowSpan}}"  ng-class="'tile-'+ board.type" >
 
                         <md-grid-tile-header>
-                            <h3><a  ui-sref="board_show({ boardId: board.id})" aria-label="Add Video to a Board"> Board: {{board.name}}</a></h3>
+                            <h3><a  ui-sref="board_show({ boardId: board.id})" aria-label="Add Video to a Board"> Board: {{board.name}}
+                                <md-tooltip md-direction="bottom">Show {{board.name}} pictures, video, etc.</md-tooltip></a></h3>
                         </md-grid-tile-header>
 
-                        <md-grid-tile-footer> <!--Buttons for edit / show in the bottom-->
-                        <md-button  ui-sref="board_edit({ boardId: board.id})" aria-label="Edit the Board">
-                            <md-tooltip md-direction="right">Edit the Board</md-tooltip>
-                            <md-icon md-svg-icon="edit"  class="left-nav-item">
-                            </md-icon></md-button>
-                            <button class="btn btn-xs btn-primary" ng-click="deleteBoard(board)">Delete</button>
-                        </md-grid-tile-footer>
                         <md-content>
-                            len {{ board.description.length }}
-                           colSpan {{int(descLength / 256) }}
-                            rowSpan {{ int(descLength / 80) }}
+                            len2 {{ descLength }}
+                            colSpan {{colSpan }}
+                            rowSpan {{ rowSpan }}
                             {{board.description.substring(1, 80); }}
                         </md-content>
+
+                        <md-grid-tile-footer> <!--Buttons for edit / show in the bottom-->
+                            <div layout="row">
+                                <md-button  ui-sref="board_edit({ boardId: board.id})" aria-label="Edit the Board">
+                                    <md-tooltip md-direction="bottom">Edit {{board.name}}</md-tooltip>
+                                    <md-icon md-svg-icon="edit"  class="left-nav-item"></md-icon>
+                                </md-button>
+
+                                <md-button  ng-click="deleteBoard(board)" aria-label="Delete the Board">
+                                    <md-tooltip md-direction="bottom">Delete {{board.name}}</md-tooltip>
+                                    <md-icon md-svg-icon="delete"  class="left-nav-item"></md-icon>
+                                </md-button>
+                            </div>
+                        </md-grid-tile-footer>
                     </md-grid-tile>
                 </span>
             </md-grid-list>
