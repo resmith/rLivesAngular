@@ -12,21 +12,19 @@
 
     <!--md-cols-sm="2" md-cols-md="4" md-cols-lg="8" md-cols-gt-lg="12"
     md-row-height="4:3"  md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px"-->
+<!--    ng-class="'tile-'+ board.type"  -->
 
             <md-grid-list md-cols="6"
                           md-row-height="4:3"  md-gutter="1%">
 
                 <span ng-repeat="board in boards | orderBy: 'name' | filter: search.val |  filter:boardTypeMatch" >
-                    {{ descLength = board.description.length;
-                       colSpan = int(descLength / 256);
-                       rowSpan = int(descLength / 80)
-                    }}
 
-                    <md-grid-tile  md-colspan-gt-sm="{{$scope.colSpan}}"
-                                   md-rowspan-gt-sm="{{$scope.rowSpan}}"  ng-class="'tile-'+ board.type" >
+                     <md-grid-tile  md-colspan-gt-sm="{{boardIndexCtrl.tile.colSpan}}"
+                                   md-rowspan-gt-sm="{{boardIndexCtrl.tile.rowSpan}}"
+                                   ng-style="{'background': boardIndexCtrl.tile.color }">
 
                         <md-grid-tile-header> <!--Show the board info-->
-                            <h3><a  ui-sref="board_show({ boardId: board.id})" aria-label="Add Video to a Board"> Board: {{board.name}}
+                            <h3><a  ui-sref="board_show({ boardId: board.id})" aria-label="Add Video to a Board">{{board.name}}
                                 <md-tooltip md-direction="bottom">Show {{board.name}} pictures, video, etc.</md-tooltip></a></h3>
                         </md-grid-tile-header>
 
@@ -34,8 +32,6 @@
                             len2 {{ descLength }}
                             colSpan {{colSpan }}
                             rowSpan {{ rowSpan }}
-                            boardType {{board.type}}
-                            {{board.description.substring(1, 80); }}
                         </md-content>
 
                         <md-grid-tile-footer> <!--Buttons for edit / show in the bottom-->
