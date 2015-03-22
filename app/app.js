@@ -103,6 +103,16 @@ myApp.config(['$mdThemingProvider', '$mdIconProvider',
 
 }]);
 
+/*myApp.config(['', function(){
+
+        var images = [
+            { name: 'Img1', path: "../../public/images/Grandparents001.jpg"
+            }
+        ]
+
+    }]);*/
+
+
 myApp.controller("defaultCtrl", ['$scope', function($scope) {
 
     $scope.message = "";

@@ -1,3 +1,12 @@
+<!-- CSS media query within a stylesheet -->
+<style>
+    @media (max-width: 600px) {
+        .img-span-1 { height: 120px; }
+        .img-span-2 { height: 240px; }
+        .img-span-3 { height: 400px; }
+    }
+</style>
+
 <div layout="row" layout-align="space-between center">
     <h2> Boards List </h2>
     <div class="input-field">
@@ -19,20 +28,18 @@
 
                 <span ng-repeat="board in boards | orderBy: 'name' | filter: search.val |  filter:boardTypeMatch" >
 
-                     <md-grid-tile  md-colspan-gt-sm="{{boardIndexCtrl.tile.colSpan}}"
-                                   md-rowspan-gt-sm="{{boardIndexCtrl.tile.rowSpan}}"
-                                   ng-style="{'background': boardIndexCtrl.tile.color }">
+                     <md-grid-tile  md-colspan-gt-sm="{{ board.colSpan }}"
+                                   md-rowspan-gt-sm="{{board.rowSpan }}"
+                                   ng-style="{'background': board.color }">
 
                         <md-grid-tile-header> <!--Show the board info-->
                             <h3><a  ui-sref="board_show({ boardId: board.id})" aria-label="Add Video to a Board">{{board.name}}
                                 <md-tooltip md-direction="bottom">Show {{board.name}} pictures, video, etc.</md-tooltip></a></h3>
                         </md-grid-tile-header>
 
-                        <md-content>
-                            len2 {{ descLength }}
-                            colSpan {{colSpan }}
-                            rowSpan {{ rowSpan }}
-                        </md-content>
+                        <img src="../public/images/Grandparents001.jpg"
+                             height="{{board.imgHeight}}"  >
+
 
                         <md-grid-tile-footer> <!--Buttons for edit / show in the bottom-->
                             <div layout="row">
