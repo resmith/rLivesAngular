@@ -6,7 +6,6 @@ myApp.factory("BoardUrl", function($resource ) {
 });
 
 /***** ---- boardIndexCtrl functions ----- *****/
-
 /* Provide the boardType for drop downs */
 myApp.controller("boardIndexCtrl",function($scope, BoardUrl) {
 
@@ -45,17 +44,18 @@ myApp.controller("boardIndexCtrl",function($scope, BoardUrl) {
 
             switch(span) {
                 case 2:
-                    $scope.boards[i].imgHeight = 300;
+                    $scope.boards[i].class = "img-span-2";
+                    $scope.boards[i].imgWidth = 240;
                     break;
                 case 3:
-                    $scope.boards[i].imgHeight = 400;
+                    $scope.boards[i].class = "img-span-3";
+                    $scope.boards[i].imgWidth = 500;
                     break;
                 default:
-                    $scope.boards[i].imgHeight = 120;
+                    $scope.boards[i].class = "img-span-1";
+                    $scope.boards[i].imgWidth = 120;
             }
-
         }
-
     });
 
 
@@ -103,7 +103,6 @@ myApp.controller("boardSaveCtrl", function($scope, $stateParams, BoardUrl) {
         });
 
 
-
     $scope.createBoard = function (board) {
         BoardUrl.save(board)
         .$promise
@@ -112,6 +111,8 @@ myApp.controller("boardSaveCtrl", function($scope, $stateParams, BoardUrl) {
                 $scope.messageClass = "messageSuccessfull";
                 $scope.saveSuccessfull = true;
                 $scope.board = {};
+                $scope.boardForm.$setPristine();
+                $scope.boardForm.$setUntouched();
                 $state = "board_create";
             },
             function() {

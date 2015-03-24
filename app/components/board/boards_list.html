@@ -1,11 +1,11 @@
 <!-- CSS media query within a stylesheet -->
 <style>
-    @media (max-width: 600px) {
-        .img-span-1 { height: 120px; }
-        .img-span-2 { height: 240px; }
-        .img-span-3 { height: 400px; }
-    }
-</style>
+    img {
+        max-width: 92%;
+        max-height: 92%;
+         }
+ </style>
+
 
 <div layout="row" layout-align="space-between center">
     <h2> Boards List </h2>
@@ -19,16 +19,17 @@
 
 <div class="panel-body" ng-controller="boardIndexCtrl">
 
-    <!--md-cols-sm="2" md-cols-md="4" md-cols-lg="8" md-cols-gt-lg="12"
-    md-row-height="4:3"  md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px"-->
-<!--    ng-class="'tile-'+ board.type"  -->
+    <!--md-cols="6"  md-row-height="4:3"  md-gutter="1%">-->
 
-            <md-grid-list md-cols="6"
-                          md-row-height="4:3"  md-gutter="1%">
+
+            <md-grid-list
+                            md-cols-sm="2" md-cols-md="4" md-cols-lg="8" md-cols-gt-lg="12"
+                            md-row-height="4:3"  md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px">
 
                 <span ng-repeat="board in boards | orderBy: 'name' | filter: search.val |  filter:boardTypeMatch" >
 
-                     <md-grid-tile  md-colspan-gt-sm="{{ board.colSpan }}"
+                     <md-grid-tile ng-class=board.class
+                                   md-colspan-gt-sm="{{ board.colSpan }}"
                                    md-rowspan-gt-sm="{{board.rowSpan }}"
                                    ng-style="{'background': board.color }">
 
@@ -36,21 +37,21 @@
                             <h3><a  ui-sref="board_show({ boardId: board.id})" aria-label="Add Video to a Board">{{board.name}}
                                 <md-tooltip md-direction="bottom">Show {{board.name}} pictures, video, etc.</md-tooltip></a></h3>
                         </md-grid-tile-header>
-
-                        <img src="../public/images/Grandparents001.jpg"
-                             height="{{board.imgHeight}}"  >
-
+                        <div align="center">
+                            <img src="../public/images/Grandparents001.jpg">
+                        </div>
+                         <!--class="{{board.class}}-->
 
                         <md-grid-tile-footer> <!--Buttons for edit / show in the bottom-->
-                            <div layout="row">
+                            <div layout="row" layout="space-between">
                                 <md-button  ui-sref="board_edit({ boardId: board.id})" aria-label="Edit the Board">
                                     <md-tooltip md-direction="bottom">Edit {{board.name}}</md-tooltip>
-                                    <md-icon md-svg-icon="edit"  class="left-nav-item"></md-icon>
+                                    <md-icon md-svg-icon="edit"  class="grid-list-icon"></md-icon>
                                 </md-button>
 
                                 <md-button  ng-click="deleteBoard(board)" aria-label="Delete the Board">
                                     <md-tooltip md-direction="bottom">Delete {{board.name}}</md-tooltip>
-                                    <md-icon md-svg-icon="delete"  class="left-nav-item"></md-icon>
+                                    <md-icon md-svg-icon="delete"  class="grid-list-icon"></md-icon>
                                 </md-button>
                             </div>
                         </md-grid-tile-footer>
