@@ -1,12 +1,3 @@
-<!-- CSS media query within a stylesheet -->
-<style>
-    img {
-        max-width: 92%;
-        max-height: 92%;
-         }
- </style>
-
-
 <div layout="row" layout-align="space-between center">
     <h2> Boards List </h2>
     <div class="input-field">
@@ -37,8 +28,9 @@
                             <h3><a  ui-sref="board_show({ boardId: board.id})" aria-label="Add Video to a Board">{{board.name}}
                                 <md-tooltip md-direction="bottom">Show {{board.name}} pictures, video, etc.</md-tooltip></a></h3>
                         </md-grid-tile-header>
-                        <div align="center">
-                            <img src="../public/images/Grandparents001.jpg">
+
+                        <div style='height:92%;width:92%;' id="boardList-img">
+                            <img src="../public/images/Grandparents001.jpg" >
                         </div>
                          <!--class="{{board.class}}-->
 

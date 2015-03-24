@@ -142,6 +142,8 @@ padding: 16px; }
     border: 0px solid #ddd;
 }
 
+#boardList-img {max-width: 90%;  max-height: 90%;}
+
 @media (min-width:1200px)  {
    body { background-color: grey;}
     h2 { padding-left: 1.4em}
@@ -161,6 +163,8 @@ padding: 16px; }
     .grid-list-icon { width: 12px;   height: 60px }
     .grid-list-icon { width: 12px;   height: 60px }
 }
+
+<!-- CSS media query within a stylesheet -->
 
 /* This is good */
 @media (min-width:960px) and  (max-width:1200px) {
