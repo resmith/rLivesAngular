@@ -36,24 +36,19 @@ myApp.controller("boardIndexCtrl",function($scope, BoardUrl) {
             else if (r < 0.9) { span = 2;}
             else {              span = 3;}
 
-            $scope.boards[i].r = r;
-            $scope.boards[i].span = span;
             $scope.boards[i].color = COLORS[Math.floor(Math.random() * COLORS.length)];
             $scope.boards[i].colSpan = span;
             $scope.boards[i].rowSpan = span;
 
             switch(span) {
                 case 2:
-                    $scope.boards[i].class = "img-span-2";
-                    $scope.boards[i].imgWidth = 240;
+                    $scope.boards[i].size = "2";
                     break;
                 case 3:
-                    $scope.boards[i].class = "img-span-3";
-                    $scope.boards[i].imgWidth = 500;
+                    $scope.boards[i].size = "3";
                     break;
                 default:
-                    $scope.boards[i].class = "img-span-1";
-                    $scope.boards[i].imgWidth = 120;
+                    $scope.boards[i].size = "1";
             }
         }
     });

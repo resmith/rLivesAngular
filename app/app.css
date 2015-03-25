@@ -118,21 +118,13 @@ padding: 16px; }
 }
 }
 
-.left-nav {
-    background-color: bisque;
-/*
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-*/
-}
 
 .left-nav-header {
     background-color: #82563B;
     vertical-align: left;
 }
 
+/*
 .left-nav-item {
     position: relative;
     display: inline-block;
@@ -141,27 +133,50 @@ padding: 16px; }
     horiz-align: center;
     border: 0px solid #ddd;
 }
+*/
 
-#boardList-img {max-width: 90%;  max-height: 90%;}
+#boardList-img-container {align-content: center}
+.boardList-img {height:92%; width:92%; margin-left:4%;  margin-right: auto;}
+a:link.board-tile-header { color: #ffffff;}  /* unvisited link */
+a:visited.board-tile-header { color: #ffffff; }  /* visited link */
+a:hover.board-tile-header { color: blue }   /* mouse over link */
+a:active.board-tile-header {color: #ffffff;} /* selected link */
 
 @media (min-width:1200px)  {
    body { background-color: grey;}
-    h2 { padding-left: 1.4em}
+    h2 { padding-left: 1.6em}
    .panel-body { padding-left: 2em}
-   .left-nav {width: 70px; height: 160px;}
+   .left-nav {background-color: bisque; width: 90px;}
    .left-nav-add {height: 400px}
-   .left-nav-link {height: 200px}
+   .left-nav-link {height: 240px}
    .left-nav-view {height: 200px}
    .left-nav-item {
-       width: 35px ;
-       height: 35px;
+       width: 26px ;
+       height: 26px;
        margin-left: 5%;
        transform: translateZ(0);
        -webkit-transform: scale(1.40);
        -moz-transform:scale(1.40);}
-    .grid-list-icon { width: 12px;   height: 60px }
-    .grid-list-icon { width: 12px;   height: 60px }
-    .grid-list-icon { width: 12px;   height: 60px }
+
+    .board-tile-header-1 {font-size:.9em; color: white; padding: 0px }
+    .board-tile-header-2 {font-size: 1.2em; color: white }
+    .board-tile-header-3 {font-size: 1.4em; color: white }
+
+    .board-list-edit-button-1 {  position:absolute;   bottom:-7px;  left:0px;    }
+    .board-list-edit-button-2 {position:absolute;    bottom:0px; left:3px;     }
+    .board-list-edit-button-3 { position:absolute;   bottom:7px;   left:7px;     }
+
+    .board-list-delete-button-1 {  position:absolute;     bottom:-7px;     right:-1px;}
+    .board-list-delete-button-2 { position:absolute;     bottom:0px;     right:1px}
+    .board-list-delete-button-3 {  position:absolute;     bottom:7px;     right:7px}
+
+    .board-list-edit-icon-1 { width: 12px;   height: 12px; }
+    .board-list-edit-icon-2 { width: 14px;   height: 14px; }
+    .board-list-edit-icon-3 { width: 20px;   height: 20px; }
+
+    .board-list-delete-icon-1 { width: 12px;   height: 12px;  }
+    .board-list-delete-icon-2 { width: 14px;   height: 14px;  }
+    .board-list-delete-icon-3 { width: 20px;   height: 20px; }
 }
 
 <!-- CSS media query within a stylesheet -->
@@ -171,9 +186,9 @@ padding: 16px; }
    body { background-color: red;}
     h2 { padding-left: 1.4em}
     .panel-body { padding-left: 2em}
-    .left-nav {width: 70px; height: 30px;}
+    .left-nav {width: 70px; height: 30px; background-color: beige}
     .left-nav-add {height: 280px}
-    .left-nav-link {height: 120px}
+    .left-nav-link {height: 200px}
     .left-nav-view {height: 140px}
     .left-nav-item {
         align-content: center;
@@ -184,12 +199,32 @@ padding: 16px; }
         -webkit-transform: scale(1.20);
         -moz-transform:scale(1.20);}
     .grid-list-icon { width: 12px;   height: 40px }
-}
 
+    .board-tile-header-1 {font-size:.9em; color: white; padding: 2px }
+    .board-tile-header-2 {font-size: 1.2em; color: white }
+    .board-tile-header-3 {font-size: 1.4em; color: white }
+
+    .board-list-edit-button-1 {  position:absolute;   bottom:-7px;  left:0px;    }
+    .board-list-edit-button-2 {position:absolute;    bottom:0px; left:3px;     }
+    .board-list-edit-button-3 { position:absolute;   bottom:6px;   left:6px;     }
+
+    .board-list-delete-button-1 {  position:absolute;     bottom:-7px;     right:-1px;}
+    .board-list-delete-button-2 { position:absolute;     bottom:0px;     right:1px}
+    .board-list-delete-button-3 {  position:absolute;     bottom:6px;     right:4px}
+
+    .board-list-edit-icon-1 { width: 12px;   height: 12px; }
+    .board-list-edit-icon-2 { width: 14px;   height: 14px; }
+    .board-list-edit-icon-3 { width: 20px;   height: 20px; }
+
+    .board-list-delete-icon-1 { width: 12px;   height: 12px;  }
+    .board-list-delete-icon-2 { width: 14px;   height: 14px;  }
+    .board-list-delete-icon-3 { width: 20px;   height: 20px; }
+
+}
 
 @media (min-width:600px) and (max-width:959px)  {
     body { background-color: #008000;}
-    h2 { padding-left: 1.4em}
+    h2 { padding-left: 1.2em}
     .panel-body { padding-left: 2em}
     .left-nav {width: 70px; height: 30px;}
     .left-nav-add {height: 280px}
@@ -204,6 +239,27 @@ padding: 16px; }
         -webkit-transform: scale(1.20);
         -moz-transform:scale(1.20);}
     .grid-list-icon { width: 12px;   height: 40px }
+
+    .board-tile-header-1 {font-size:.9em; color: white; padding: 2px }
+    .board-tile-header-2 {font-size: 1.2em; color: white }
+    .board-tile-header-3 {font-size: 1.4em; color: white }
+
+    .board-list-edit-button-1 {  position:absolute;   bottom:-7px;  left:0px;    }
+    .board-list-edit-button-2 {position:absolute;    bottom:0px; left:3px;     }
+    .board-list-edit-button-3 { position:absolute;   bottom:6px;   left:6px;     }
+
+    .board-list-delete-button-1 {  position:absolute;     bottom:-7px;     right:-1px;}
+    .board-list-delete-button-2 { position:absolute;     bottom:0px;     right:1px}
+    .board-list-delete-button-3 {  position:absolute;     bottom:6px;     right:4px}
+
+    .board-list-edit-icon-1 { width: 12px;   height: 12px; }
+    .board-list-edit-icon-2 { width: 14px;   height: 14px; }
+    .board-list-edit-icon-3 { width: 20px;   height: 20px; }
+
+    .board-list-delete-icon-1 { width: 12px;   height: 12px;  }
+    .board-list-delete-icon-2 { width: 14px;   height: 14px;  }
+    .board-list-delete-icon-3 { width: 20px;   height: 20px; }
+
 }
 
 @media (max-width:599px)  {
@@ -219,6 +275,27 @@ padding: 16px; }
         transform: translateZ(0);
         -webkit-transform: scale(0.70);
         -moz-transform:scale(0.70);}
+    .board-tile-header-1 {font-size:.9em; color: white; padding: 2px }
+    .board-tile-header-2 {font-size: 1.2em; color: white }
+    .board-tile-header-3 {font-size: 1.4em; color: white }
+
+    .board-list-edit-button-1 {  position:absolute;   bottom:-7px;  left:0px;    }
+    .board-list-edit-button-2 {position:absolute;    bottom:0px; left:3px;     }
+    .board-list-edit-button-3 { position:absolute;   bottom:6px;   left:6px;     }
+
+    .board-list-delete-button-1 {  position:absolute;     bottom:-7px;     right:-1px;}
+    .board-list-delete-button-2 { position:absolute;     bottom:0px;     right:1px}
+    .board-list-delete-button-3 {  position:absolute;     bottom:6px;     right:4px}
+
+    .board-list-edit-icon-1 { width: 12px;   height: 12px; }
+    .board-list-edit-icon-2 { width: 14px;   height: 14px; }
+    .board-list-edit-icon-3 { width: 20px;   height: 20px; }
+
+    .board-list-delete-icon-1 { width: 12px;   height: 12px;  }
+    .board-list-delete-icon-2 { width: 14px;   height: 14px;  }
+    .board-list-delete-icon-3 { width: 20px;   height: 20px; }
+
+
 }
 
 
@@ -331,11 +408,8 @@ span.name {
   padding-left:5px;
 }
 
-
-/*
- CSS for animation of pulling in the main content
- from https://github.com/angular-ui/ui-router/blob/master/sample/css/styles.css
-*/
+/* CSS for animation of pulling in the main content
+ from https://github.com/angular-ui/ui-router/blob/master/sample/css/styles.css   */
 
  .slide.ng-leave {
      position: relative;
@@ -377,13 +451,4 @@ span.name {
     background: #b388ff; }
 .red-background  {
     background: #ff8a80; }
-
-
-/*  Tile Backgrounds for board types  */
-.tile-pers{ background: #f5f5f5; }
-.tile-fmly{ background: #b9f6ca; }
-.tile-frnd{ background: #ffff8d; }
-.tile-busn{ background: #84ffff; }
-.tile-schl{ background: #b388ff; }
-.tile-othr{ background: #ff8a80; }
 
