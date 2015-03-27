@@ -87,7 +87,6 @@ md-list .md-button {
 .message-input, .message-input .inline-label, .menu-bar {margin-bottom: 0;}
 .messages {border-right: 1px solid #eee;}
 .message-side-bar {border-left: 1px solid #eee; background-color: #DADBDD}
-.left-menu-header {background-color: #82563B;}
 h1 { font: bold 1.5em Georgia, times, "times New Roman", serif; text-align: center; margin: .5em 1em 1em 1em ; padding: 0; text-shadow: 0px 0px #FFFFFF;}
 
 .primary-content {
@@ -119,10 +118,6 @@ padding: 16px; }
 }
 
 
-.left-nav-header {
-    background-color: #82563B;
-    vertical-align: left;
-}
 
 /*
 .left-nav-item {
@@ -142,21 +137,38 @@ a:visited.board-tile-header { color: #ffffff; }  /* visited link */
 a:hover.board-tile-header { color: blue }   /* mouse over link */
 a:active.board-tile-header {color: #ffffff;} /* selected link */
 
+
+@media (min-height:800px) {
+
+
+    .left-nav-add {height: 350px}
+    .left-nav-link {height: 200px}
+    .left-nav-view {height: 140px}
+}
+
 @media (min-width:1200px)  {
    body { background-color: grey;}
     h2 { padding-left: 1.6em}
    .panel-body { padding-left: 2em}
-   .left-nav {background-color: bisque; width: 90px;}
-   .left-nav-add {height: 400px}
-   .left-nav-link {height: 240px}
-   .left-nav-view {height: 200px}
-   .left-nav-item {
-       width: 26px ;
-       height: 26px;
-       margin-left: 5%;
-       transform: translateZ(0);
-       -webkit-transform: scale(1.40);
-       -moz-transform:scale(1.40);}
+    .left-nav-button {padding-left: 20px;}
+    .left-nav { width: 65px;}
+    .left-menu-header  {
+        background-color: #82563B;
+        vertical-align: left;
+        width: 65px;
+        font-size: .8em;
+    }
+
+    .left-nav-item {
+        align-content: center;
+        width: 44px;
+        padding-left: 10px;
+        transform: translateZ(0);
+        -webkit-transform: scale(1.30);
+        -moz-transform:scale(1.30);
+        zoom:1.30;
+    }
+
 
     .board-tile-header-1 {font-size:.9em; color: white; padding: 0px }
     .board-tile-header-2 {font-size: 1.2em; color: white }
@@ -179,26 +191,30 @@ a:active.board-tile-header {color: #ffffff;} /* selected link */
     .board-list-delete-icon-3 { width: 20px;   height: 20px; }
 }
 
-<!-- CSS media query within a stylesheet -->
-
-/* This is good */
 @media (min-width:960px) and  (max-width:1200px) {
    body { background-color: red;}
     h2 { padding-left: 1.4em}
-    .panel-body { padding-left: 2em}
-    .left-nav {width: 70px; height: 30px; background-color: beige}
-    .left-nav-add {height: 280px}
-    .left-nav-link {height: 200px}
-    .left-nav-view {height: 140px}
+    .panel-body { padding-left: 1em}
+
+    .left-nav-button {padding-left: 20px;}
+    .left-nav { width: 65px;}
+    .left-menu-header  {
+        background-color: #82563B;
+        vertical-align: left;
+        width: 65px;
+        font-size: .8em;
+    }
+
     .left-nav-item {
         align-content: center;
-        width: 40px;
-        zoom:1.20;
-        padding: 5%;
+        width: 44px;
+        padding-left: 10px;
         transform: translateZ(0);
-        -webkit-transform: scale(1.20);
-        -moz-transform:scale(1.20);}
-    .grid-list-icon { width: 12px;   height: 40px }
+        -webkit-transform: scale(1.30);
+        -moz-transform:scale(1.30);
+        zoom:1.30;
+    }
+
 
     .board-tile-header-1 {font-size:.9em; color: white; padding: 2px }
     .board-tile-header-2 {font-size: 1.2em; color: white }
@@ -222,35 +238,41 @@ a:active.board-tile-header {color: #ffffff;} /* selected link */
 
 }
 
-@media (min-width:600px) and (max-width:959px)  {
+@media (min-width:600px) and (max-width:960px)  {
     body { background-color: #008000;}
     h2 { padding-left: 1.2em}
     .panel-body { padding-left: 2em}
-    .left-nav {width: 70px; height: 30px;}
-    .left-nav-add {height: 280px}
-    .left-nav-link {height: 120px}
-    .left-nav-view {height: 140px}
+    .left-nav { width: 50px;}
+    .left-nav-button {padding-left: 20px;}
+    .left-menu-header  {
+        background-color: #82563B;
+        vertical-align: left;
+     /*   width: 56px;*/
+        font-size: .8em;
+    }
+    .left-nav-text { visibility: hidden}
     .left-nav-item {
         align-content: center;
-        width: 40px;
-        zoom:1.20;
-        padding: 5%;
+        width: 44px;
+        padding-left: 3px;
         transform: translateZ(0);
-        -webkit-transform: scale(1.20);
-        -moz-transform:scale(1.20);}
-    .grid-list-icon { width: 12px;   height: 40px }
+        -webkit-transform: scale(1.10);
+        -moz-transform:scale(1.10);
+        zoom:1.10;
+    }
 
-    .board-tile-header-1 {font-size:.9em; color: white; padding: 2px }
+
+    .board-tile-header-1 {font-size:.9em; color: white; padding: 0px }
     .board-tile-header-2 {font-size: 1.2em; color: white }
     .board-tile-header-3 {font-size: 1.4em; color: white }
 
     .board-list-edit-button-1 {  position:absolute;   bottom:-7px;  left:0px;    }
     .board-list-edit-button-2 {position:absolute;    bottom:0px; left:3px;     }
-    .board-list-edit-button-3 { position:absolute;   bottom:6px;   left:6px;     }
+    .board-list-edit-button-3 { position:absolute;   bottom:7px;   left:7px;     }
 
     .board-list-delete-button-1 {  position:absolute;     bottom:-7px;     right:-1px;}
     .board-list-delete-button-2 { position:absolute;     bottom:0px;     right:1px}
-    .board-list-delete-button-3 {  position:absolute;     bottom:6px;     right:4px}
+    .board-list-delete-button-3 {  position:absolute;     bottom:7px;     right:7px}
 
     .board-list-edit-icon-1 { width: 12px;   height: 12px; }
     .board-list-edit-icon-2 { width: 14px;   height: 14px; }
@@ -262,9 +284,9 @@ a:active.board-tile-header {color: #ffffff;} /* selected link */
 
 }
 
-@media (max-width:599px)  {
+@media (max-width:600px)  {
     body { background-color: pink;}
-    .left-nav {width: 50px; }
+/*    .left-nav {width: 50px; }
     .left-nav-add {height: 250px}
     .left-nav-link {height: 250px}
     .left-nav-view {height: 250px}
@@ -274,7 +296,9 @@ a:active.board-tile-header {color: #ffffff;} /* selected link */
         zoom:1.70;
         transform: translateZ(0);
         -webkit-transform: scale(0.70);
-        -moz-transform:scale(0.70);}
+        -moz-transform:scale(0.70);}*/
+
+    .left-nav-text { visibility: hidden}
     .board-tile-header-1 {font-size:.9em; color: white; padding: 2px }
     .board-tile-header-2 {font-size: 1.2em; color: white }
     .board-tile-header-3 {font-size: 1.4em; color: white }

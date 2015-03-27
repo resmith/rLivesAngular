@@ -1,13 +1,13 @@
 <!-- start of left menu -->
-<div layout="column" layout-align="space-between start">
-    <div>
+<div layout="column" layout-align="space-between start" style="background-color: bisque;">
+    <div >
         <md-list >
-            <div layout="column" layout-align="space-between start" class="left-nav left-nav-add">
-                <div class="left-menu-header" width="100%">
-                        <md-item><img src="./assets/svg/ic_add_circle_24px.svg">&nbsp;Add</md-item>
+            <div layout="column" layout-sm="row" layout-align="space-between start" class="left-nav left-nav-add">
+                <div class="left-menu-header" >
+                        <md-item><img src="./assets/svg/ic_add_circle_24px.svg"><span class="left-nav-text">&nbsp;Add</span></md-item>
                 </div>
 
-                <div><md-item><md-button ui-sref="board_create" aria-label="Create a Board">
+                <div><md-item><md-button ui-sref="board_create" aria-label="Create a Board" class="left-nav-button">
                     <md-tooltip md-direction="right">Create a Board</md-tooltip>
                     <md-icon md-svg-icon="board"  class="left-nav-item"></md-icon>
                 </md-button></md-item></div>
@@ -52,9 +52,9 @@
 
     <div>
         <md-list class="left-nav left-nav-link" >
-            <div layout="column" flex="100" class="left-nav left-nav-view" layout="column" layout-align="space-between start">
+            <div layout="column" layout-sm="row" flex="100" class="left-nav left-nav-view" layout="column" layout-align="space-between start">
                 <div class="left-menu-header">
-                    <md-item><img src="./assets/svg/ic_link_24px.svg">&nbsp;Link</md-item>
+                    <md-item><img src="./assets/svg/ic_link_24px.svg"><span class="left-nav-text">&nbsp;Link</span></md-item>
                 </div>
 
                 <div><md-item><md-button href="#/link/people" aria-label="Link People to Boards">
@@ -73,30 +73,29 @@
                 </md-button></md-item></div>
             </div>
         </md-list>
-    </div>
 
-    <md-list>
-        <div layout="column" flex="100" class="left-nav left-nav-view" layout="column" layout-align="space-between start">
-            <div class="left-menu-header"><md-item>
-                    <img src="./assets/svg/ic_eye_24px.svg">&nbsp;View
-                </md-item></div>
+        <md-list>
+            <div layout="column" layout-sm="row" flex="100" class="left-nav left-nav-view" layout="column" layout-align="space-between start">
+                <div class="left-menu-header"><md-item>
+                        <img src="./assets/svg/ic_eye_24px.svg"><span class="left-nav-text">&nbsp;View</span>
+                    </md-item></div>
 
-            <div><md-item><md-button ui-sref="boards_list" aria-label="View Boards">
-                    <md-tooltip md-direction="right">View Boards</md-tooltip>
-                    <md-icon md-svg-icon="board"  class="left-nav-item"></md-icon>
-            </md-button></md-item></div>
+                <div><md-item><md-button ui-sref="boards_list" aria-label="View Boards">
+                        <md-tooltip md-direction="right">View Boards</md-tooltip>
+                        <md-icon md-svg-icon="board"  class="left-nav-item"></md-icon>
+                </md-button></md-item></div>
 
-            <div><md-item><md-button ui-sref="people_list" aria-label="View People">
-                <md-tooltip md-direction="right">View People</md-tooltip>
-                <md-icon md-svg-icon="person"  class="left-nav-item"></md-icon>
-            </md-button></md-item></div>
+                <div><md-item><md-button ui-sref="people_list" aria-label="View People">
+                    <md-tooltip md-direction="right">View People</md-tooltip>
+                    <md-icon md-svg-icon="person"  class="left-nav-item"></md-icon>
+                </md-button></md-item></div>
 
-            <div><md-item><md-button href="#/messages" aria-label="View Messages">
-                <md-tooltip md-direction="right">View Messages</md-tooltip>
-                <md-icon md-svg-icon="message"  class="left-nav-item"></md-icon>
-            </md-button></md-item></div>
-        </div>
-    </md-list>
+                <div><md-item><md-button href="#/messages" aria-label="View Messages">
+                    <md-tooltip md-direction="right">View Messages</md-tooltip>
+                    <md-icon md-svg-icon="message"  class="left-nav-item"></md-icon>
+                </md-button></md-item></div>
+            </div>
+        </md-list>
 </div>
 
 
