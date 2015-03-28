@@ -95,7 +95,7 @@ h1 { font: bold 1.5em Georgia, times, "times New Roman", serif; text-align: cent
     padding-right: 2%;
 }
 
-.main-content {
+.main-content {}
 
 md-content {
 display: block;
@@ -116,8 +116,6 @@ padding: 5px; }
     md-content.md-padding {
     padding: 16px; }
     }
-}
-
 
 
 /*
@@ -150,10 +148,12 @@ a:active.board-tile-header {color: #ffffff;} /* selected link */
     .left-nav-button {padding-left: 20px;}
     .left-nav { width: 65px;}
     .left-menu-header  {
-        background-color: #82563B;
-        vertical-align: left;
-        width: 65px;
         font-size: .8em;
+        background-color: #82563B;
+        width: 100%;
+        vertical-align: middle;
+        border: 1px solid;
+        border-radius: 5px;
     }
     .left-nav-item {
         align-content: center;
@@ -193,11 +193,12 @@ a:active.board-tile-header {color: #ffffff;} /* selected link */
     .left-nav-link {height: 200px}
     .left-nav-view {height: 140px}
     .left-nav-button {padding-left: 20px;}
+    .left-nav { width: 65px;}
     .left-menu-header  {
         font-size: .8em;
         background-color: #82563B;
-        vertical-align: left;
-        .left-nav { width: 75px;}
+        width: 100%;
+        vertical-align: middle;
         border: 1px solid;
         border-radius: 5px;
     }
@@ -243,10 +244,12 @@ a:active.board-tile-header {color: #ffffff;} /* selected link */
     .left-nav { width: 50px;}
     .left-nav-button {padding-left: 20px;}
     .left-menu-header  {
-        background-color: #82563B;
-        vertical-align: left;
-     /*   width: 56px;*/
         font-size: .8em;
+        background-color: #82563B;
+        width: 50px;
+        vertical-align: middle;
+        border: 1px solid;
+        border-radius: 5px;
     }
     .left-nav-text { visibility: hidden}
     .left-nav-item {
@@ -458,7 +461,8 @@ span.name {
 }
 
 /* CSS for the grids - this appears on select_media */
-.gridListdemoBasicUsage md-whiteframe {
+.gridListdemoBasicUsage {}
+.md-whiteframe {
     margin: 8px; }
 .gray-background {
     background: #f5f5f5; }
