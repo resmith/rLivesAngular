@@ -141,9 +141,9 @@ a:active.board-tile-header {color: #ffffff;} /* selected link */
    body { background-color: grey;}
     h2 { padding-left: 1.6em}
    .panel-body { padding-left: 2em}
-    .left-nav-add {height: 350px}
-    .left-nav-link {height: 200px}
-    .left-nav-view {height: 140px}
+    .left-nav-add {height: 400px;}
+    .left-nav-link {height: 250px; margin-top: 10px}
+    .left-nav-view {height: 190px;}
 
     .left-nav-button {padding-left: 20px;}
     .left-nav { width: 65px;}
@@ -155,14 +155,22 @@ a:active.board-tile-header {color: #ffffff;} /* selected link */
         border: 1px solid;
         border-radius: 5px;
     }
+    .left-menu-header-link  { margin-top: 10px; }
+    .left-menu-header-view  { margin-top: 10px; }
+
+
     .left-nav-item {
         align-content: center;
-        width: 30px;
-        padding-left: 10px;
+        width: 40px;
+        padding-left: 15px;
         transform: translateZ(0);
-        -webkit-transform: scale(1.20);
-        -moz-transform:scale(1.20);
-        zoom:1.20;
+        -webkit-transform: scale(1.30);
+        -moz-transform:scale(1.30);
+        zoom:1.30;
+        padding-top: 0;
+        margin-top: 0;
+        padding-bottom: 0px;
+        margin-bottom: 5px;
     }
 
     .board-tile-header-1 {font-size:.9em; color: white; padding: 0px }
@@ -237,6 +245,7 @@ a:active.board-tile-header {color: #ffffff;} /* selected link */
 @media (min-width:600px) and (max-width:960px)  {
     body { background-color: #008000;}
     h2 { padding-left: 1.2em}
+    .md-sidenav-left { width: 56px}
     .panel-body { padding-left: 2em}
     .left-nav-add {height: 350px}
     .left-nav-link {height: 200px}

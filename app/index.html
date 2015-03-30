@@ -22,16 +22,13 @@
       <!--The header-->
       <div ng-include src="'./partials/header.html'" ></div>
 
-  <div flex layout="row" layout-sm="column">
+  <div flex layout="row">
 
       <!--The left nav-->
-      <div flex="5">
-        <div ng-include src="'./partials/leftnav.html'"></div>
+      <div ng-include src="'./partials/leftnav.html'"></div>
+
+      <div  flex="100" class="slide primary-content" ui-view  >
       </div>
-
-
-           <div  flex="90"  class="slide primary-content" ui-view  >
-          </div>
 
 
   </div>

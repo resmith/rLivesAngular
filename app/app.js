@@ -103,15 +103,16 @@ myApp.config(['$mdThemingProvider', '$mdIconProvider',
 
 }]);
 
-/*myApp.config(['', function(){
 
-        var images = [
-            { name: 'Img1', path: "../../public/images/Grandparents001.jpg"
-            }
-        ]
-
-    }]);*/
-
+myApp.controller('HeaderCtrl', function($scope, $timeout, $mdSidenav, $log) {
+    $scope.toggleLeftNav = function () {
+        $log.debug("about to toggle");
+        $mdSidenav('leftnav').toggle()
+            .then(function () {
+                $log.debug("toggle left is done");
+            });
+    };
+});
 
 myApp.controller("defaultCtrl", ['$scope', function($scope) {
 

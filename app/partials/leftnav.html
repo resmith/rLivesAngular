@@ -1,10 +1,9 @@
 <!-- start of left menu -->
-<div layout="column" layout-align="space-between start" style="background-color: bisque;">
-    <div >
+<md-sidenav md-component-id="leftnav" class="md-sidenav-left md-whiteframe-z2" md-is-open="true"  md-is-locked-open="true" style="background-color: bisque;">
         <md-list>
-            <div layout="column" layout-sm="row" layout-align="space-between start" class="left-nav left-nav-add">
+            <div layout="column" layout-align="space-between start" class="left-nav left-nav-add">
                 <div class="left-menu-header">
-                        <md-item><img src="./assets/svg/ic_add_circle_24px.svg"><span class="left-nav-text">&nbsp;Add</span></md-item>
+                        <md-item><img src="./assets/svg/ic_add_circle_24px.svg"><span hide show-gt-md>&nbsp;Add</span></md-item>
                 </div>
 
                 <div><md-item><md-button ui-sref="board_create" aria-label="Create a Board">
@@ -48,13 +47,10 @@
                 </md-button></md-item></div>
             </div>
         </md-list>
-    </div>
-
-    <div>
         <md-list class="left-nav left-nav-link" >
-            <div layout="column" layout-sm="row" flex="100" class="left-nav left-nav-view"  layout-align="space-between start">
-                <div class="left-menu-header">
-                    <md-item><img src="./assets/svg/ic_link_24px.svg"><span class="left-nav-text">&nbsp;Link</span></md-item>
+            <div layout="column" flex="100" class="left-nav left-nav-view"  layout-align="space-between start">
+                <div class="left-menu-header left-menu-header-link">
+                    <md-item><img src="./assets/svg/ic_link_24px.svg"><span hide show-gt-md>&nbsp;Link</span></md-item>
                 </div>
 
                 <div><md-item><md-button href="#/link/people" aria-label="Link People to Boards">
@@ -75,9 +71,9 @@
         </md-list>
 
         <md-list>
-            <div layout="column" layout-sm="row" flex="100" class="left-nav left-nav-view"  layout-align="space-between start">
-                <div class="left-menu-header"><md-item>
-                        <img src="./assets/svg/ic_eye_24px.svg"><span class="left-nav-text">&nbsp;View</span>
+            <div layout="column" flex="100" class="left-nav left-nav-view"  layout-align="space-between start">
+                <div class="left-menu-header left-menu-header-view"><md-item>
+                        <img src="./assets/svg/ic_eye_24px.svg"><span hide show-gt-md>&nbsp;View</span>
                     </md-item></div>
 
                 <div><md-item><md-button ui-sref="boards_list" aria-label="View Boards">
@@ -96,6 +92,6 @@
                 </md-button></md-item></div>
             </div>
         </md-list>
-</div>
+</md-sidenav>
 
 
