@@ -136,8 +136,11 @@ a:visited.board-tile-header { color: #ffffff; }  /* visited link */
 a:hover.board-tile-header { color: blue }   /* mouse over link */
 a:active.board-tile-header {color: #ffffff;} /* selected link */
 .md-sidenav-left {
-    min-width: 56px;
-    max-width: 56px;
+    min-width: 90px;
+    max-width: 90px;
+    width: 90px;
+    height:100%;
+    overflow: hidden;
 }
 .left-nav { width: 65px;}
 

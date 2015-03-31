@@ -96,7 +96,6 @@ myApp.config(['$mdThemingProvider', '$mdIconProvider',
         .icon("delete"     , "./assets/svg/ic_delete_48px.svg"       , 48);
 
 
-
     $mdThemingProvider.theme('default')
         .primaryPalette('brown')
         .accentPalette('blue-grey');
@@ -105,12 +104,18 @@ myApp.config(['$mdThemingProvider', '$mdIconProvider',
 
 
 myApp.controller('HeaderCtrl', function($scope, $timeout, $mdSidenav, $log) {
+    $scope.leftNavOpen = true;
+
     $scope.toggleLeftNav = function () {
-        $log.debug("about to toggle");
-        $mdSidenav('leftnav').toggle()
-            .then(function () {
-                $log.debug("toggle left is done");
+        $log.debug("1");
+        if ($scope.leftNavOpen == true ) { $scope.leftNavOpen = false;} else {$scope.leftNavOpen = true;}
+        $log.debug("2");
+        $mdSidenav('left').toggle()
+            .then(function(){
+                $log.debug("close LEFT is done");
             });
+        $log.debug("3");
+        $log.debug("leftNavOpen = " + $scope.leftNavOpen);
     };
 });
 
