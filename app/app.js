@@ -23,11 +23,11 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         })
         .state('register', {
             url: "/register",
-            templateUrl: "/user/register.html"
+            templateUrl: "./components/user/user_define.html"
         })
         .state('sign_in', {
-            url: "/signin",
-            templateUrl: "/user/sign_in.html"
+            url: "/sign_in",
+            templateUrl: "./components/user/user_signin.html"
         })
         .state('boards_list', {
             url: "/boards",
@@ -103,18 +103,19 @@ myApp.config(['$mdThemingProvider', '$mdIconProvider',
 }]);
 
 
-myApp.controller('HeaderCtrl', function($scope, $timeout, $mdSidenav, $log) {
-    $scope.leftNavOpen = true;
+myApp.controller('HeaderCtrl', function($scope, $mdSidenav, $log) {
 
     $scope.toggleLeftNav = function () {
-        $log.debug("1");
-        if ($scope.leftNavOpen == true ) { $scope.leftNavOpen = false;} else {$scope.leftNavOpen = true;}
-        $log.debug("2");
-        $mdSidenav('left').toggle()
-            .then(function(){
-                $log.debug("close LEFT is done");
-            });
-        $log.debug("3");
+       if ($scope.leftNavOpen ) {
+           $scope.leftNavOpen = false;
+           $scope.leftNavFlex = 0;
+           $scope.leftNavSrc = "";
+
+       } else {
+           $scope.leftNavOpen = true;
+           $scope.leftNavFlex = 10;
+           $scope.leftNavSrc = "./partials/leftnav.html"
+       }
         $log.debug("leftNavOpen = " + $scope.leftNavOpen);
     };
 });

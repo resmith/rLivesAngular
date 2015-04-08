@@ -1,9 +1,10 @@
 <!-- start of left menu -->
-<md-sidenav md-component-id="left" class="md-sidenav-left"   style="background-color: bisque;">
-        <md-list class="left-nav left-nav-add">
+<div layout="column" layout-align="space-between start" style="background-color: bisque;">
+    <div >
+        <md-list>
             <div layout="column" layout-align="space-between start" class="left-nav left-nav-add">
                 <div class="left-menu-header">
-                        <md-item><img src="./assets/svg/ic_add_circle_24px.svg"><span hide show-gt-md>&nbsp;Add</span></md-item>
+                    <md-item><img src="./assets/svg/ic_add_circle_24px.svg"><span hide show-gt-md>&nbsp;Add</span></md-item>
                 </div>
 
                 <div><md-item><md-button ui-sref="board_create" aria-label="Create a Board">
@@ -12,8 +13,8 @@
                 </md-button></md-item></div>
 
                 <div><md-item><md-button  ui-sref="image_upload" aria-label="Add Pictures to a Board">
-                        <md-tooltip md-direction="right">Add Pictures to a Board</md-tooltip>
-                        <md-icon md-svg-icon="picture"  class="left-nav-item"></md-icon>
+                    <md-tooltip md-direction="right">Add Pictures to a Board</md-tooltip>
+                    <md-icon md-svg-icon="picture"  class="left-nav-item"></md-icon>
                 </md-button></md-item></div>
 
                 <div><md-item><md-button href="#/video" aria-label="Add Video to a Board">
@@ -47,6 +48,9 @@
                 </md-button></md-item></div>
             </div>
         </md-list>
+    </div>
+
+    <div>
         <md-list class="left-nav left-nav-link" >
             <div layout="column" flex="100" class="left-nav left-nav-view"  layout-align="space-between start">
                 <div class="left-menu-header left-menu-header-link">
@@ -54,13 +58,13 @@
                 </div>
 
                 <div><md-item><md-button href="#/link/people" aria-label="Link People to Boards">
-                        <md-tooltip md-direction="right">Link a Person to a Board</md-tooltip>
-                        <md-icon md-svg-icon="person"  class="left-nav-item"></md-icon>
+                    <md-tooltip md-direction="right">Link a Person to a Board</md-tooltip>
+                    <md-icon md-svg-icon="person"  class="left-nav-item"></md-icon>
                 </md-button></md-item></div>
 
                 <div><md-item><md-button href="#/link/board" aria-label="Link Boards to other Boards">
-                        <md-tooltip md-direction="right">Link a Board to other Boards</md-tooltip>
-                        <md-icon md-svg-icon="board"  class="left-nav-item"></md-icon>
+                    <md-tooltip md-direction="right">Link a Board to other Boards</md-tooltip>
+                    <md-icon md-svg-icon="board"  class="left-nav-item"></md-icon>
                 </md-button></md-item></div>
 
                 <div><md-item><md-button href="#/link/web" aria-label="Link Board to Web">
@@ -73,12 +77,12 @@
         <md-list>
             <div layout="column" flex="100" class="left-nav left-nav-view"  layout-align="space-between start">
                 <div class="left-menu-header left-menu-header-view"><md-item>
-                        <img src="./assets/svg/ic_eye_24px.svg"><span hide show-gt-md>&nbsp;View</span>
-                    </md-item></div>
+                    <img src="./assets/svg/ic_eye_24px.svg"><span hide show-gt-md>&nbsp;View</span>
+                </md-item></div>
 
                 <div><md-item><md-button ui-sref="boards_list" aria-label="View Boards">
-                        <md-tooltip md-direction="right">View Boards</md-tooltip>
-                        <md-icon md-svg-icon="board"  class="left-nav-item"></md-icon>
+                    <md-tooltip md-direction="right">View Boards</md-tooltip>
+                    <md-icon md-svg-icon="board"  class="left-nav-item"></md-icon>
                 </md-button></md-item></div>
 
                 <div><md-item><md-button ui-sref="people_list" aria-label="View People">
@@ -92,6 +96,6 @@
                 </md-button></md-item></div>
             </div>
         </md-list>
-</md-sidenav>
+    </div>
 
 

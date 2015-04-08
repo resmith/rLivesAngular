@@ -1,0 +1,53 @@
+
+<form name="userForm" novalidate ng-submit="signin(user)">
+
+    <h2> Sign In </h2>
+
+    <h3 class="{{messageClass}}"> {{ message }} </h3>
+
+    <div class="alert alert-danger" ng-show="User.error">
+        Error ({{User.error.status}}). The user data was not loaded.
+        <a href="/index.html" class="alert-link">Click here to try again</a>
+    </div>
+
+
+    <div class="" ng-show="saveSuccessfull">
+        Sign In was successfull
+        <md-button href="#/media" class="md-primary">Create a board</md-button>
+    </div>
+
+
+    <div class="input-label">Email</div>
+    <div class="input-field">
+        <md-input-container>
+            <input name="userEmail" type="text" class="form-control" minlength=4 maxlength="256" md-minlength=4 md-maxlength="256"
+                   required ng-model="user.email">
+            <div ng-messages="userEmail.$error" ng-show="dForm.userEmail.$dirty">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="md-maxlength">That's too long!</div>
+                <div ng-message="minlength">That's too short!</div>
+            </div>
+        </md-input-container>
+    </div>
+
+    <div class="input-label">Password</div>
+    <div class="input-field">
+        <md-input-container>
+            <input name="userPassword" type="text" class="form-control" minlength=4 maxlength="256" md-minlength=4 md-maxlength="256"
+                   required ng-model="user.password">
+            <div ng-messages="userPassword.$error" ng-show="dForm.userPassword.$dirty">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="md-maxlength">That's too long!</div>
+                <div ng-message="minlength">That's too short!</div>
+            </div>
+        </md-input-container>
+    </div>
+
+
+    <br>
+    <br>
+
+    <md-button type="submit" ng-disabled="userForm.$invalid"  class="md-raised md-primary">Submit</md-button>
+
+    <!--ng-disabled="userForm.$invalid"-->
+</form>
