@@ -51,11 +51,13 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         })
         .state('select_media', {
             url: "/media",
-            templateUrl: "./components/media/select_media.html"
+            templateUrl: "./components/image/select_media.html",
+            controller: 'imageSelectMediaCtrl'
         })
         .state('image_upload', {
             url: "/image",
-            templateUrl: "./components/media/image_upload.html"
+            templateUrl: "./components/image/image_upload.html",
+            controller: 'imageUploadCtrl'
         })
         .state('images_view', {
             url: "/image",
