@@ -1,0 +1,34 @@
+    <form name="imageForm" novalidate ng-submit="addimage(newimage)" >
+        <h2> Image Upload </h2>
+        <h3 class="{{messageClass}}"> {{ message }} </h3>
+
+        <div class="alert alert-danger" ng-show="Board.error">
+            Error ({{Board.error.status}}). The product data was not loaded.
+            <a href="/index.html" class="alert-link">Click here to try again</a>
+        </div>
+
+
+
+        <md-input-container>
+            <label>Title:</label>
+            <input name="imageName" type="text" class="form-control" md-minlength="1" md-maxlength="256" required ng-model="image.name">
+            <div ng-messages="imageForm.imageName.$error" ng-show="imageForm.imageName1dirty">
+                <div ng-message="required">This is required!</div>
+            </div>
+        </md-input-container>
+
+        <label>Image:</label>
+        <md-input-container>
+            <input name="imageUpload" type="file" class="form-control"  ng-model="image.upload">
+        </md-input-container>
+        {{ image.upload}}
+
+
+        <md-input-container>
+            <label>Description:</label>
+            <input name="imageDescription" type="text" class="form-control" md-minlength="0" md-maxlength="2056" ng-model="image.description">
+        </md-input-container>
+
+
+        <md-button type="submit" ng-disabled="imageForm.$invalid"  class="md-raised md-primary">Upload</md-button>
+    </form>

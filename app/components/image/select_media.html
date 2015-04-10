@@ -1,0 +1,57 @@
+<div layout="row" layout-align="space-between center">
+    <h2> Boards List </h2>
+    <div class="input-field">
+        <md-select ng-model="search.type" name="search.type" placeholder="Type">
+            <md-option ng-value="boardType.value" data-ng-repeat="boardType in boardTypes">{{ boardType.label }}</md-option>
+        </md-select>
+    </div>
+    <input ng-model="search.val" type="text" placeholder="Filter">
+</div>
+
+<div class="panel-body" ng-controller="boardIndexCtrl">
+
+    <!--md-cols="6"  md-row-height="4:3"  md-gutter="1%">-->
+
+
+    <md-grid-list
+            md-cols-sm="3" md-cols-md="5" md-cols-lg="6" md-cols-gt-lg="7"
+            md-row-height="4:3"  md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px">
+
+                <span ng-repeat="board in boards | orderBy: 'name' | filter: search.val |  filter:boardTypeMatch" >
+
+                     <md-grid-tile class="{{'img-span-' + board.size}}"
+                                   md-colspan-gt-sm="{{ board.colSpan }}"
+                                   md-rowspan-gt-sm="{{board.rowSpan }}"
+                                   ng-style="{'background': board.color }">  <!--  Board colors intentionally left out of class and in ng-style because of the large # of colors -->
+
+
+                         <md-grid-tile-header style="z-index:3"> <!--Show the board info-->
+                             <h3><a  ui-sref="board_show({ boardId: board.id})" class="board-tile-header {{'board-tile-header-'+board.size }}" aria-label="Add Video to a Board">{{board.name}}
+                                 <md-tooltip md-direction="bottom">Show {{board.name}} pictures, video, etc.</md-tooltip></a></h3>
+                         </md-grid-tile-header>
+
+                         <div  id="boardList-img-container"  style="z-index:1">
+                             <img src="./images/Grandparents001.jpg" class="boardList-img">
+                         </div>
+
+                         <md-grid-tile-footer  style="z-index:2"> <!--Buttons for edit / show in the bottom-->
+                             <div>
+                                 <div>
+                                     <md-button  ui-sref="board_edit({ boardId: board.id})" aria-label="Edit the Board" class="{{'board-list-edit-button-' + board.size}}">
+                                         <md-tooltip md-direction="bottom">Edit {{board.name}}</md-tooltip>
+                                         <md-icon md-svg-icon="edit"  class="{{'board-list-edit-icon-' + board.size}}"></md-icon>
+                                     </md-button>
+                                 </div>
+
+                                 <div align="right">
+                                     <md-button  ng-click="deleteBoard(board)" aria-label="Delete the Board" class="{{'board-list-delete-button-' + board.size}}">
+                                         <md-tooltip md-direction="bottom">Delete {{board.name}}</md-tooltip>
+                                         <md-icon md-svg-icon="delete"   class="{{'board-list-delete-icon-' + board.size}}" ></md-icon>
+                                     </md-button>
+                                 </div>
+                             </div>
+                         </md-grid-tile-footer>
+                     </md-grid-tile>
+                </span>
+    </md-grid-list>
+</div>
