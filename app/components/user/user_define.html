@@ -47,7 +47,7 @@
     <div class="input-label">Email</div>
     <div class="input-field">
         <md-input-container>
-            <input name="userEmail" type="text" class="form-control" minlength=4 maxlength="256" md-minlength=4 md-maxlength="256"
+            <input name="userEmail" type="email" class="form-control" minlength=4 maxlength="256" md-minlength=4 md-maxlength="256"
                    required ng-model="user.email">
             <div ng-messages="userEmail.$error" ng-show="dForm.userEmail.$dirty">
                 <div ng-message="required">This is required!</div>

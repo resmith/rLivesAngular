@@ -88,7 +88,7 @@ myApp.controller("boardIndexCtrl",function($scope, BoardUrl) {
 
 
 
-myApp.controller("boardSaveCtrl", function($scope, $stateParams, BoardUrl) {
+myApp.controller("boardSaveCtrl", function($scope, $stateParams, BoardUrl, $mdToast) {
     /* $scope.data = { boards: {}}; */
     $scope.boardTypes = [
         {"value": "pers", "label": "Personal"},
@@ -98,9 +98,9 @@ myApp.controller("boardSaveCtrl", function($scope, $stateParams, BoardUrl) {
         {"value": "schl", "label": "School"},
         {"value": "othr", "label": "Other"}
     ];
-        BoardUrl.get({id: $stateParams.boardId}, function(data) {
+/*        BoardUrl.get({id: $stateParams.boardId}, function(data) {
             $scope.board = data;
-        });
+        });*/
 
 
     $scope.createBoard = function (board) {
@@ -111,9 +111,11 @@ myApp.controller("boardSaveCtrl", function($scope, $stateParams, BoardUrl) {
                 $scope.messageClass = "messageSuccessfull";
                 $scope.saveSuccessfull = true;
                 $scope.board = {};
-                $scope.boardForm.$setPristine();
                 $scope.boardForm.$setUntouched();
+                $scope.boardForm.$setPristine();
                 $state = "board_create";
+                showSimpleToast()
+
             },
             function() {
                 $scope.data.error = error;

@@ -49,15 +49,15 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
             templateUrl: "./components/board/board_show.html",
             controller: 'boardShowCtrl as Board'
         })
-        .state('select_media', {
-            url: "/media",
-            templateUrl: "./components/image/select_media.html",
-            controller: 'imageSelectMediaCtrl'
-        })
         .state('image_upload', {
             url: "/image",
             templateUrl: "./components/image/image_upload.html",
             controller: 'imageUploadCtrl'
+        })
+        .state('select_media', {
+            url: "/media/link",
+            templateUrl: "./components/image/select_media.html",
+            controller: 'imageSelectMediaCtrl as imageSelectMedia'
         })
         .state('images_view', {
             url: "/image",
@@ -95,8 +95,11 @@ myApp.config(['$mdThemingProvider', '$mdIconProvider',
         .icon("web"     , "./assets/svg/ic_language_48px.svg"       , 512)
 
         .icon("edit"     , "./assets/svg/ic_edit_48px.svg"       , 48)
-        .icon("delete"     , "./assets/svg/ic_delete_48px.svg"       , 48);
+        .icon("delete"     , "./assets/svg/ic_delete_48px.svg"       , 48)
 
+        .icon("add"     , "./assets/svg/ic_add_circle_24px.svg"       , 48)
+        .icon("link"     , "./assets/svg/ic_link_24px.svg"       , 48)
+        .icon("view"     , "./assets/svg/ic_eye_24px.svg"       , 48);
 
     $mdThemingProvider.theme('default')
         .primaryPalette('brown')
@@ -104,6 +107,12 @@ myApp.config(['$mdThemingProvider', '$mdIconProvider',
 
 }]);
 
+myApp.service("crossvars", function Crossvar() {
+// Set the variables and constants that work across controllers
+    var crossvars = this;
+
+    crossvars.uploaded_media = "Default";
+});
 
 myApp.controller('HeaderCtrl', function($scope, $mdSidenav, $log) {
 
@@ -137,4 +146,49 @@ myApp.controller("defaultCtrl", ['$scope', function($scope) {
     }
 }]);
 
+
+myApp.controller('defaultCtrl', function($scope, $mdToast, $animate) {
+    $scope.toastPosition = {
+        bottom: false,
+        top: true,
+        left: false,
+        right: true
+    };
+    $scope.getToastPosition = function() {
+        return Object.keys($scope.toastPosition)
+            .filter(function(pos) { return $scope.toastPosition[pos]; })
+            .join(' ');
+    };
+    $scope.showCustomToast = function() {
+        $mdToast.show({
+            controller: 'ToastCtrl',
+            templateUrl: 'toast-template.html',
+            hideDelay: 6000,
+            position: $scope.getToastPosition()
+        });
+    };
+    $scope.showSimpleToast = function() {
+        $mdToast.show(
+            $mdToast.simple()
+                .content($scope.message)
+                .position($scope.getToastPosition())
+                .hideDelay(3000)
+        );
+    };
+    $scope.showActionToast = function() {
+        var toast = $mdToast.simple()
+            .content('Action Toast!')
+            .action('OK')
+            .highlightAction(false)
+            .position($scope.getToastPosition());
+        $mdToast.show(toast).then(function() {
+            alert('You clicked \'OK\'.');
+        });
+    };
+})
+myApp.controller('ToastCtrl', function($scope, $mdToast) {
+        $scope.closeToast = function() {
+            $mdToast.hide();
+        };
+    });
 

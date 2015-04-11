@@ -27,7 +27,7 @@
 
                         <md-grid-tile-header style="z-index:3"> <!--Show the board info-->
                             <h3><a  ui-sref="board_show({ boardId: board.id})" class="board-tile-header {{'board-tile-header-'+board.size }}" aria-label="Add Video to a Board">{{board.name}}
-                                <md-tooltip md-direction="bottom">Show {{board.name}} pictures, video, etc.</md-tooltip></a></h3>
+                                <md-tooltip md-direction="bottom">{{board.description.substring(0, 120)}}</md-tooltip></a></h3>
                         </md-grid-tile-header>
 
                         <div  id="boardList-img-container"  style="z-index:1">
