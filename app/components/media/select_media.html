@@ -1,0 +1,46 @@
+<h2> Create Text </h2>
+
+<h3 class="{{messageClass}}"> {{ message }} </h3>
+
+<div class="alert alert-danger" ng-show="Board.error">
+    Error ({{Board.error.status}}). The product data was not loaded.
+    <a href="/index.html" class="alert-link">Click here to try again</a>
+</div>
+
+<br>
+<div layout="column" layout-align="space-between start"">
+    <div >
+        <md-list>
+            <div layout="column" layout-align="space-between start" class="left-nav left-nav-add">
+                <div><md-item><md-button  ui-sref="image_upload" aria-label="Add Pictures to a Board">
+                    <md-tooltip md-direction="right">Add Pictures to a Board</md-tooltip>
+                    <md-icon md-svg-icon="picture"  class="left-nav-item"></md-icon>
+                    &nbsp;Images
+                </md-button></md-item></div>
+
+                <div><md-item><md-button ui-sref="video_upload" aria-label="Add Video to a Board">
+                    <md-tooltip md-direction="right">Add Video to a Board</md-tooltip>
+                    <md-icon md-svg-icon="video"  class="left-nav-item"></md-icon>
+                    &nbsp;Video
+                </md-button></md-item></div>
+
+                <div><md-item><md-button ui-sref="audio_upload" aria-label="Add Audio to a Board">
+                    <md-tooltip md-direction="right">Add Audio to a Board</md-tooltip>
+                    <md-icon md-svg-icon="audio"  class="left-nav-item"></md-icon>
+                    &nbsp;Audio
+                </md-button></md-item></div>
+
+                <div><md-item><md-button ui-sref="doc_upload" aria-label="Add Documents (Word, LibreOffice) to a Board">
+                    <md-tooltip md-direction="right">Add Documents (Word, LibreOffice) to a Board</md-tooltip>
+                    <md-icon md-svg-icon="document"  class="left-nav-item"></md-icon>
+                    &nbsp;Documents
+                </md-button></md-item></div>
+
+                <div><md-item><md-button ui-sref="other_upload"  aria-label="Add Other Attachments to a Board">
+                    <md-tooltip md-direction="right">Add Other Attachments to a Board</md-tooltip>
+                    <md-icon md-svg-icon="other"  class="left-nav-item"></md-icon>
+                    &nbsp;Other
+                </md-button></md-item></div>
+            </div>
+        </md-list>
+    </div>

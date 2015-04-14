@@ -1,0 +1,59 @@
+
+<form name="textForm" novalidate ng-submit="createText(text)">
+
+    <h2> Create Text, Story, Quotes ... {{ text.name}} </h2>
+
+    <h3 class="{{messageClass}}"> {{ message }} </h3>
+
+    <div class="alert alert-danger" ng-show="Text.error">
+        Error ({{Text.error.status}}). The product data was not loaded.
+        <a href="/index.html" class="alert-link">Click here to try again</a>
+    </div>
+
+
+    <div class="" ng-show="saveSuccessfull">
+        You can enter a new text or
+        <md-button href="#/media" class="md-primary">Upload Media</md-button>
+    </div>
+
+
+
+    <div class="input-label">Name</div>
+    <div class="input-field">
+        <md-input-container>
+            <input name="textName" type="text" class="form-control" md-minlength=4 md-maxlength="80"
+                   required ng-model="text.name">
+            <div ng-messages="textName.$error" ng-show="dForm.textName.$dirty">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="md-maxlength">That's too long!</div>
+                <div ng-message="minlength">That's too short!</div>
+            </div>
+        </md-input-container>
+    </div>
+
+    <div class="input-label">Description:</div>
+    <div class="input-field">
+        <md-input-container>
+                <textarea name="textDescription" type="text" class="form-control" md-maxlength="512"
+                          ng-model="text.description"></textarea>
+        </md-input-container>
+    </div>
+
+    <div class="input-label">Text/Story:</div>
+    <div class="input-field">
+        <md-input-container>
+                <textarea name="textText" type="text" class="form-control" md-maxlength="12056"
+                          ng-model="text.Text"></textarea>
+        </md-input-container>
+    </div>
+
+    <textarea name="Text1" cols="40" rows="5" ... ></textarea>
+
+
+    <br>
+    <br>
+
+    <md-button type="submit" ng-disabled="textForm.$invalid"  class="md-raised md-primary">Save</md-button>
+
+    <!--ng-disabled="textForm.$invalid"-->
+</form>

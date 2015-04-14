@@ -1,0 +1,17 @@
+
+
+board
+board.name
+board.type
+board.boardPermissions
+board.description
+
+
+image
+image.name
+image.upload
+image.description
+
+board/image
+board_id
+image_id

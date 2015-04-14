@@ -5,7 +5,7 @@
             <md-option ng-value="boardType.value" data-ng-repeat="boardType in boardTypes">{{ boardType.label }}</md-option>
         </md-select>
     </div>
-    <input ng-model="search.val" type="text" placeholder="Filter">
+    <input ng-model="search.val" type="search" placeholder="Filter">
 </div>
 
 <div class="panel-body" ng-controller="boardIndexCtrl">
