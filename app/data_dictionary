@@ -12,6 +12,13 @@ image.name
 image.upload
 image.description
 
-board/image
+board2images
 board_id
 image_id
+
+
+messages
+message_subject
+message_text
+message_sender_names
+message_sender_email

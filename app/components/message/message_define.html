@@ -1,0 +1,69 @@
+<form name="messageForm" novalidate ng-submit="createMessage(message)">
+
+    <h2> Create Message, Story, Quotes ... {{ message.name}} </h2>
+
+    <h3 class="{{messageClass}}"> {{ message }} </h3>
+
+    <div class="alert alert-danger" ng-show="Message.error">
+        Error ({{Message.error.status}}). The product data was not loaded.
+        <a href="/index.html" class="alert-link">Click here to try again</a>
+    </div>
+
+
+    <div class="" ng-show="saveSuccessfull">
+        You can enter a new message or
+        <md-button href="#/media" class="md-primary">Upload Media</md-button>
+    </div>
+
+
+    <md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="message">
+        <md-content class="md-padding">
+        <br>
+
+        <div class="input-label">Message Subject</div>
+        <div class="input-field">
+            <md-input-container>
+                <input name="messageName" type="text" class="form-control" md-minlength=4 md-maxlength="80"
+                       required ng-model="message.name">
+                <div ng-messages="messageName.$error" ng-show="messageForm.messageName.$dirty">
+                    <div ng-message="required">This is required!<br></div>
+                    <div ng-message="md-maxlength">That's too long!<br></div>
+                    <div ng-message="md-minlength">That's too short!<br></div>
+                </div>
+            </md-input-container>
+        </div>
+
+        <div class="input-label">Message</div>
+        <div class="input-field">
+            <md-input-container>
+                <textarea name="messageText" type="message" class="form-control" md-maxlength="12056"
+                             ng-model="message.text"
+                             required
+                             cols="40" rows="5" ></textarea>
+                <div ng-messages="messageText.$error" ng-show="messageForm.messageText.$dirty">
+                    <div ng-message="required">This is required!<br></div>
+                    <div ng-message="md-maxlength">That's too long!<br></div>
+                    <div ng-message="md-minlength">That's too short!<br></div>
+                </div>
+            </md-input-container>
+        </div>
+
+        </md-content>
+    </md-tab>
+    <md-tab label="sendTo">
+        <br>
+        Select the person to SendTo
+
+    </md-tab>
+</md-tabs>
+
+
+
+    <br>
+    <br>
+
+    <md-button type="submit" ng-disabled="messageForm.$invalid"  class="md-raised md-primary">Save</md-button>
+
+    <!--ng-disabled="messageForm.$invalid"-->
+</form>

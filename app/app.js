@@ -77,9 +77,14 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
             url: "/text",
             templateUrl: "./components/text/text_define.html",
             controller: function($scope) {
-                $scope.things = ["A", "Set", "Of", "Things"];
-            }
-        });
+                $scope.things = ["A", "Set", "Of", "Things"]; }
+        })
+        .state('message_create', {
+            url: "/message",
+            templateUrl: "./components/message/message_define.html",
+            controller: 'peopleListCtrl'
+        })
+    ;
 }]);
 
 myApp.config(['$mdThemingProvider', '$mdIconProvider',

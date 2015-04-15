@@ -43,12 +43,16 @@
     <div class="input-field">
         <md-input-container>
                 <textarea name="textText" type="text" class="form-control" md-maxlength="12056"
-                          ng-model="text.Text"></textarea>
+                          ng-model="text.Text"
+                          required
+                          cols="40" rows="5" ></textarea>
+            <div ng-messages="textText.$error" ng-show="dForm.textText.$dirty">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="md-maxlength">That's too long!</div>
+                <div ng-message="minlength">That's too short!</div>
+            </div>
         </md-input-container>
     </div>
-
-    <textarea name="Text1" cols="40" rows="5" ... ></textarea>
-
 
     <br>
     <br>
