@@ -10,14 +10,14 @@
 
 
         <md-input-container>
-            <label>Title:</label>
+            <label>Title</label>
             <input name="imageName" type="text" class="form-control" md-minlength="1" md-maxlength="256" required ng-model="image.name">
-            <div ng-messages="imageForm.imageName.$error" ng-show="imageForm.imageName1dirty">
+<!--            <div ng-messages="imageForm.imageName.$error" ng-show="imageForm.imageName1dirty">
                 <div ng-message="required">This is required!</div>
-            </div>
+            </div>-->
         </md-input-container>
 
-        <label>Image:</label>
+        <label>Image</label>
         <md-input-container>
             <input name="imageUpload" type="file" class="form-control"  ng-model="image.upload">
         </md-input-container>
@@ -25,7 +25,7 @@
 
 
         <md-input-container>
-            <label>Description:</label>
+            <label>Description</label>
             <input name="imageDescription" type="text" class="form-control" md-minlength="0" md-maxlength="2056" ng-model="image.description">
         </md-input-container>
 

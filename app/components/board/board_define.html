@@ -10,39 +10,30 @@
             <a href="/index.html" class="alert-link">Click here to try again</a>
         </div>
 
-
         <div class="" ng-show="saveSuccessfull">
             You can enter a new board or
             <md-button href="#/media" class="md-primary">Upload Media</md-button>
         </div>
 
+        <md-input-container>
+            <label>Name</label>
+            <input name="boardName" type="text" class="form-control" minlength=4 maxlength="256" md-minlength=4 md-maxlength="256"
+                   required ng-model="board.name">
+<!--            <div ng-messages="boardForm.boardName.$error">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="minlength">That's too short!</div>
+            </div>-->
+        </md-input-container>
 
-
-        <div class="input-label">Name</div>
-        <div class="input-field">
-            <md-input-container>
-                <input name="boardName" type="text" class="form-control" minlength=4 maxlength="256" md-minlength=4 md-maxlength="256"
-                       required ng-model="board.name">
-                <div ng-messages="boardName.$error" ng-show="dForm.boardName.$dirty">
-                    <div ng-message="required">This is required!</div>
-                    <div ng-message="md-maxlength">That's too long!</div>
-                    <div ng-message="minlength">That's too short!</div>
-                </div>
-            </md-input-container>
-        </div>
-
-        <div class="input-label">Board Type</div>
-        <div class="input-field">
-            <md-select data-ng-model="board.type" name="board.type" required>
-                <md-option data-ng-value="boardType.value" data-ng-repeat="boardType in boardTypes">{{ boardType.label }}</md-option>
-            </md-select>
-        </div>
+        <span class="md-input-group md-input-focused"><label>Board Type</label></span>
+        <md-select data-ng-model="board.type" name="board.type" required>
+            <md-option data-ng-value="boardType.value" data-ng-repeat="boardType in boardTypes">{{ boardType.label }}</md-option>
+        </md-select>
 
         <br>
         <br>
 
-        <div class="input-label">Board Permissions</div>
-        <div class="input-field">
+        <span class="md-input-group md-input-focused"><label>Board Permissions</label></span>
             <md-radio-group ng-model="board.boardPermissions" name="BoardPermissions" required>
                 <md-radio-button value="open" aria-input-label="Allow everyone to view, upload & create">
                     Allow everyone to view, upload & create</md-radio-button>
@@ -51,16 +42,15 @@
                 <md-radio-button value="defn" aria-input-label="Only allow what you define">
                     Only allow what you define</md-radio-button>
             </md-radio-group>
-        </div>
 
-
-        <div class="input-label">Description:</div>
-        <div class="input-field">
-            <md-input-container>
-                <textarea name="boardDescription" type="text" class="form-control" md-maxlength="2056"
-                         ng-model="board.description"></textarea>
-            </md-input-container>
-        </div>
+        <md-input-container>
+            <label>Description:</label>
+            <textarea name="boardDescription" type="text" class="form-control" md-maxlength="2056" maxlength="2056"
+                     ng-model="board.description"></textarea>
+            <div ng-messages="boardForm.board.description.$error" ng-show="boardForm.board.description.$error">
+                <div ng-message="md-maxlength">That's too long!</div>
+            </div>
+        </md-input-container>
 
 
         <br>

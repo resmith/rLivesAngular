@@ -1,4 +1,4 @@
-<form name="messageForm" novalidate ng-submit="createMessage(message)">
+<form name="messageForm" ng-submit="createMessage(message)">
 
     <h2> Create Message, Story, Quotes ... {{ message.name}} </h2>
 
@@ -6,7 +6,6 @@
 
     <div class="alert alert-danger" ng-show="Message.error">
         Error ({{Message.error.status}}). The product data was not loaded.
-        <a href="/index.html" class="alert-link">Click here to try again</a>
     </div>
 
 
@@ -15,55 +14,87 @@
         <md-button href="#/media" class="md-primary">Upload Media</md-button>
     </div>
 
+    <md-content layout-padding >
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="message">
+                <md-content layout-padding>
+                    <md-input-container>
+                        <label>Subject</label>
+                        <input name="messageName" type="text" class="form-control" md-minlength=4 md-maxlength="80"
+                               required ng-model="message.name">
+                        <div ng-messages="messageForm.messageName.$error">
+                            <div ng-message="required">This is required!</div>
+<!--                            <div ng-message="md-maxlength">That's too long!</div>
+                            <div ng-message="md-minlength">That's too short!</div>-->
+                        </div>
+                    </md-input-container>
 
-    <md-tabs md-dynamic-height md-border-bottom>
-    <md-tab label="message">
-        <md-content class="md-padding">
-        <br>
+                        <md-input-container>
+                            <label>Message</label>
+                            <textarea name="messageText" type="message" class="form-control" md-maxlength="12056"
+                                         ng-model="message.text"
+                                         required
+                                         cols="40" rows="5" ></textarea>
+                            <div ng-messages="messageForm.messageText.$error">
+                                <div ng-message="required">This is required!<br></div>
+<!--                                <div ng-message="md-maxlength">That's too long!<br></div>
+                                <div ng-message="md-minlength">That's too short!<br></div>-->
+                            </div>
+                        </md-input-container>
+                </md-content>
+            </md-tab>
+            <md-tab label="sendTo">
 
-        <div class="input-label">Message Subject</div>
-        <div class="input-field">
-            <md-input-container>
-                <input name="messageName" type="text" class="form-control" md-minlength=4 md-maxlength="80"
-                       required ng-model="message.name">
-                <div ng-messages="messageName.$error" ng-show="messageForm.messageName.$dirty">
-                    <div ng-message="required">This is required!<br></div>
-                    <div ng-message="md-maxlength">That's too long!<br></div>
-                    <div ng-message="md-minlength">That's too short!<br></div>
+
+                <div ng-controller="ContactChipDemoCtrl as ctrl">
+                    <md-content class="md-padding autocomplete" layout="column">
+                        <p>
+                            Contact Chips.
+                        </p>
+                        <md-contact-chips
+                                ng-model="ctrl.contacts"
+                                md-contacts="ctrl.querySearch($query)"
+                                md-contact-name="name"
+                                md-contact-image="image"
+                                md-contact-email="email"
+                                filter-selected="ctrl.filterSelected"
+                                placeholder="To">
+                        </md-contact-chips>
+                        <md-checkbox ng-model="ctrl.filterSelected">Filter selected contacts from options</md-checkbox>
+                        <br />
+                        <div layout="row">
+                            <div flex>
+                                <md-list>
+                                    <md-subheader class="md-no-sticky">Contacts</md-subheader>
+                                    <md-list-item class="md-2-line" ng-repeat="(index, contact) in ctrl.allContacts">
+                                        <img ng-src="{{contact.image}}" class="md-avatar" alt="{{contact.name}}" />
+                                        <div class="md-list-item-text compact">
+                                            <h3>{{contact.name}}</h3>
+                                            <p>{{contact.email}}</p>
+                                        </div>
+                                    </md-list-item>
+                                </md-list>
+                            </div>
+                            <div flex>
+                                <md-list>
+                                    <md-subheader class="md-no-sticky">Selected Contacts</md-subheader>
+                                    <ul>
+                                        <li ng-repeat="c in ctrl.contacts">
+                                            {{c.email}}
+                                        </li>
+                                    </ul>
+                            </div>
+                        </div>
+                    </md-content>
                 </div>
-            </md-input-container>
-        </div>
-
-        <div class="input-label">Message</div>
-        <div class="input-field">
-            <md-input-container>
-                <textarea name="messageText" type="message" class="form-control" md-maxlength="12056"
-                             ng-model="message.text"
-                             required
-                             cols="40" rows="5" ></textarea>
-                <div ng-messages="messageText.$error" ng-show="messageForm.messageText.$dirty">
-                    <div ng-message="required">This is required!<br></div>
-                    <div ng-message="md-maxlength">That's too long!<br></div>
-                    <div ng-message="md-minlength">That's too short!<br></div>
-                </div>
-            </md-input-container>
-        </div>
-
-        </md-content>
-    </md-tab>
-    <md-tab label="sendTo">
-        <br>
-        Select the person to SendTo
-
-    </md-tab>
-</md-tabs>
 
 
+            </md-tab>
+        </md-tabs>
+    </md-content>
 
     <br>
     <br>
-
     <md-button type="submit" ng-disabled="messageForm.$invalid"  class="md-raised md-primary">Save</md-button>
-
     <!--ng-disabled="messageForm.$invalid"-->
 </form>
