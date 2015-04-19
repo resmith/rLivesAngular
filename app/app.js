@@ -51,7 +51,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         })
         .state('image_upload', {
             url: "/image",
-            templateUrl: "./components/image/image_upload.html",
+            templateUrl: "components/media/image_upload.html",
             controller: 'imageUploadCtrl'
         })
         .state('select_media', {
@@ -61,7 +61,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         })
         .state('image_link_board', {
             url: "/image/board",
-            templateUrl: "./components/image/select_board.html",
+            templateUrl: "components/media/select_board.html",
             controller: 'imageSelectBoardCtrl as imageSelectBoard'
         })
         .state('images_view', {
@@ -82,7 +82,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         .state('message_create', {
             url: "/message",
             templateUrl: "./components/message/message_define.html",
-            controller: 'peopleListCtrl'
+            controller: 'messageSaveCtrl as ctrl'
         })
 
         .state('link_people2boards', {
