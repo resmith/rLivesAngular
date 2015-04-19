@@ -1,6 +1,6 @@
-<form name="messageForm" novalidate ng-submit="createMessage(message)">
+<form name="messageForm" novalidate ng-submit="createMessage(message)" xmlns="http://www.w3.org/1999/html">
 
-    <h2> Create Message, Story, Quotes ... {{ message.name}} </h2>
+    <h2> Create & Send Message {{ message.name}} </h2>
 
     <h3 class="{{messageClass}}"> {{ message }} </h3>
 
@@ -17,53 +17,47 @@
 
 
     <md-tabs md-dynamic-height md-border-bottom>
-    <md-tab label="message">
+    <md-tab label="Message">
         <md-content class="md-padding">
         <br>
 
-        <div class="input-label">Message Subject</div>
-        <div class="input-field">
             <md-input-container>
+                <label>Message Subject</label>
                 <input name="messageName" type="text" class="form-control" md-minlength=4 md-maxlength="80"
                        required ng-model="message.name">
-                <div ng-messages="messageName.$error" ng-show="messageForm.messageName.$dirty">
+                <div ng-messages="messageForm.messageName.$error" ng-show="messageForm.messageName.$dirty">
                     <div ng-message="required">This is required!<br></div>
                     <div ng-message="md-maxlength">That's too long!<br></div>
                     <div ng-message="md-minlength">That's too short!<br></div>
                 </div>
             </md-input-container>
-        </div>
 
-        <div class="input-label">Message</div>
-        <div class="input-field">
             <md-input-container>
+                <label>Message</label>
                 <textarea name="messageText" type="message" class="form-control" md-maxlength="12056"
                              ng-model="message.text"
                              required
                              cols="40" rows="5" ></textarea>
-                <div ng-messages="messageText.$error" ng-show="messageForm.messageText.$dirty">
+                <div ng-messages="messageForm.messageText.$error" ng-show="messageForm.messageText.$dirty">
                     <div ng-message="required">This is required!<br></div>
                     <div ng-message="md-maxlength">That's too long!<br></div>
                     <div ng-message="md-minlength">That's too short!<br></div>
                 </div>
             </md-input-container>
-        </div>
 
         </md-content>
     </md-tab>
-    <md-tab label="sendTo">
-        <br>
+
+    <md-tab label="Send To">
+
+
         Select the person to SendTo
-
+        <br>
+        <md-button type="submit" ng-disabled="messageForm.$invalid"  class="md-raised md-primary">Save</md-button>
     </md-tab>
-</md-tabs>
 
 
-
-    <br>
-    <br>
-
-    <md-button type="submit" ng-disabled="messageForm.$invalid"  class="md-raised md-primary">Save</md-button>
 
     <!--ng-disabled="messageForm.$invalid"-->
+    </md-tabs>
 </form>

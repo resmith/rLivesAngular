@@ -1,0 +1,68 @@
+<form name="messageForm" novalidate ng-submit="createMessage(message)" xmlns="http://www.w3.org/1999/html">
+
+    <h2> Link People to Boards {{ message.name}} </h2>
+
+    <h3 class="{{messageClass}}"> {{ message }} </h3>
+
+    <div class="alert alert-danger" ng-show="Message.error">
+        Error ({{Message.error.status}}). The product data was not loaded.
+        <a href="/index.html" class="alert-link">Click here to try again</a>
+    </div>
+
+
+    <div class="" ng-show="saveSuccessfull">
+        You can enter a new message or
+        <md-button href="#/media" class="md-primary">Upload Media</md-button>
+    </div>
+
+
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Person">
+            <md-content class="md-padding">
+                Select existing people to link to the boards
+                <br>
+
+                <md-input-container>
+                    <label>Existing People</label>
+                    <input name="messageName" type="text" class="form-control" md-minlength=4 md-maxlength="80"
+                           required ng-model="message.name">
+                    <div ng-messages="messageForm.messageName.$error" ng-show="messageForm.messageName.$dirty">
+                        <div ng-message="required">This is required!<br></div>
+                        <div ng-message="md-maxlength">That's too long!<br></div>
+                        <div ng-message="md-minlength">That's too short!<br></div>
+                    </div>
+                </md-input-container>
+            </md-content>
+        </md-tab>
+
+        <md-tab label="Boards">
+            <md-content class="md-padding">
+                Invite new people to link to the boards
+                <br>
+
+                <md-input-container>
+                    <label>New People</label>
+                    <input name="messageName" type="text" class="form-control" md-minlength=4 md-maxlength="80"
+                           required ng-model="message.name">
+                    <div ng-messages="messageForm.messageName.$error" ng-show="messageForm.messageName.$dirty">
+                        <div ng-message="required">This is required!<br></div>
+                        <div ng-message="md-maxlength">That's too long!<br></div>
+                        <div ng-message="md-minlength">That's too short!<br></div>
+                    </div>
+                </md-input-container>
+            </md-content>
+        </md-tab>
+
+
+        <md-tab label="Boards">
+
+
+            <br>
+            <md-button type="submit" ng-disabled="messageForm.$invalid"  class="md-raised md-primary">Save</md-button>
+        </md-tab>
+
+
+
+        <!--ng-disabled="messageForm.$invalid"-->
+    </md-tabs>
+</form>

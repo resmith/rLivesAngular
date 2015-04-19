@@ -84,6 +84,13 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
             templateUrl: "./components/message/message_define.html",
             controller: 'peopleListCtrl'
         })
+
+        .state('link_people2boards', {
+            url: "/message",
+            templateUrl: "./components/message/message_define.html",
+            controller: 'peopleListCtrl'
+        })
+
     ;
 }]);
 
