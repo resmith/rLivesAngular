@@ -6,29 +6,58 @@ myApp.config(['$httpProvider', function($httpProvider) {
     delete $httpProvider.defaults.headers.common["X-Requested-With"];
 }]);
 
-myApp.factory("ImageUrl", function($resource ) {
-    return $resource("http://localhost:2403/images/:id", {imageId: '@id'})
-});
-
 myApp.factory("BoardUrl", function($resource ) {
     return $resource("http://localhost:2403/boards/:id", {boardId: '@id'})
 });
 
-myApp.factory("Board2ImagesUrl", function($resource ) {
-    return $resource("http://localhost:2403/board2images/:id", {Board2ImageId: '@id' }, {
-        query: {method: "GET", isArray: false}
-    });
-});
-
 /***** ---- Image Controller Functions ----- *****/
 /* Provide the imageType for drop downs */
-myApp.controller("imageUploadCtrl", function($scope, $stateParams, $state, ImageUrl, crossvars) {
-    var imageUploadCtrl = this;
+myApp.controller("LinkPeople2BoardsCtrl", function($scope, BoardUrl) {
+    /*var LinkPeople2Boards = this;*/
 
-    $scope.image = {};
+    $scope.message = "";
+    $scope.people = "";
+    $scope.boards = "";
+    $scope.permissons = "";
+    $scope.boardType;
 
-    $scope.createImage = function (image) {
-        ImageUrl.save(image)
+    $scope.People = [
+        {"name": "All", "email": "All"},
+        {"name": "pers", "email": "Personal"},
+        {"name": "fmly", "email": "Family"},
+        {"name": "frnd", "email": "Friends"},
+        {"name": "busn", "email": "Business"},
+        {"name": "schl", "email": "School"},
+        {"name": "othr", "email": "Other"}
+    ];
+
+
+    $scope.boardTypes = [
+        {"value": "All", "label": "All"},
+        {"value": "pers", "label": "Personal"},
+        {"value": "fmly", "label": "Family"},
+        {"value": "frnd", "label": "Friends"},
+        {"value": "busn", "label": "Business"},
+        {"value": "schl", "label": "School"},
+        {"value": "othr", "label": "Other"}
+    ];
+
+    $scope.boardPermissions = [
+        {"value": "View", "label": "View"},
+        {"value": "Update", "label": "Update"}
+
+    ];
+
+
+
+    BoardUrl.query(function (data) {
+        $scope.boards = data;
+    });
+
+
+
+    $scope.createpeople2Boards = function (people, boards, permissons) {
+/*        ImageUrl.save(image)
             .$promise
             .then(function (image) {
                 $scope.message = "ImageUrl " + image.name + " successfully saved!";
@@ -44,8 +73,24 @@ myApp.controller("imageUploadCtrl", function($scope, $stateParams, $state, Image
                 $scope.message = "Issue with save ";
                 $scope.messageClass = "messageError";
                 $scope.saveSuccessfull = false;
-            });
+            });*/
     };
+
+    $scope.boardTypeMatch = function (board) {
+        if (!angular.isDefined(board) ||
+            !angular.isDefined($scope.search)
+        ) {  return true; }
+        if (!angular.isDefined(board.type) ||
+            $scope.search.type == "All"
+        ) {  return true; }
+        var typeMatch = false;
+        if (angular.isDefined(board.type) &&
+            angular.isDefined($scope.search.type)) {
+            typeMatch = board.type === $scope.search.type;
+        }
+        return typeMatch;
+    };
+
 });
 
 

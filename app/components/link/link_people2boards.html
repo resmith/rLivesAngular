@@ -1,0 +1,98 @@
+<form name="people2Boards" novalidate ng-submit="createpeople2Boards(people, boards, permissons)" xmlns="http://www.w3.org/1999/html">
+
+    <h2> Link People to Boards</h2>
+    <h3> {{ message }} </h3>
+
+<!-- >>> Clean Up
+     <div class="alert alert-danger" ng-show="people2Boards.$error">
+        Error {{message.error.status}}. The data was not loaded.
+        <a ui-sref="link_people2boards" class="alert-link">Click here to try again</a>
+    </div>-->
+
+    <div ng-show="saveSuccessfull">Successfull Save!</div>
+
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Existing Contacts">
+            <md-content class="md-padding">
+                Select existing people to link to the boards
+                <br>
+
+                <md-input-container>
+                    <label>Existing People</label>
+                    <input name="messageName" type="text" class="form-control" md-minlength=4 md-maxlength="80"
+                           required ng-model="message.name">
+                    <div ng-messages="messageForm.messageName.$error" ng-show="messageForm.messageName.$dirty">
+                        <div ng-message="required">This is required!<br></div>
+                        <div ng-message="md-maxlength">That's too long!<br></div>
+                        <div ng-message="md-minlength">That's too short!<br></div>
+                    </div>
+                </md-input-container>
+            </md-content>
+        </md-tab>
+
+        <md-tab label="New Contacts">
+            <md-content class="md-padding">
+                Invite new people to link to the boards
+                <br>
+
+                <md-input-container>
+                    <label>Email Addresses</label>
+                    <input name="messageName" type="text" class="form-control" md-minlength=4 md-maxlength="80"
+                           required ng-model="message.name">
+                    <div ng-messages="messageForm.messageName.$error" ng-show="messageForm.messageName.$dirty">
+                        <div ng-message="required">This is required!<br></div>
+                        <div ng-message="md-maxlength">That's too long!<br></div>
+                        <div ng-message="md-minlength">That's too short!<br></div>
+                    </div>
+                </md-input-container>
+            </md-content>
+        </md-tab>
+
+
+        <md-tab label="Boards">
+            <div class="input-field">
+                <span style="align-content: flex-start">
+                <md-select ng-model="search.type" name="search.type" placeholder="All">
+                    <md-option ng-value="boardType.value" data-ng-repeat="boardType in boardTypes">{{ boardType.label }}</md-option>
+                </md-select>
+                </span>
+                <span style="align-content: center">
+                    <input ng-model="search.val" type="search" placeholder="Filter">
+                </span>
+            </div>
+
+                <table>
+                    <thead>
+                        <td></td>
+                        <td>Board</td>
+                        <td>Description</td>
+                        <td>Owner</td>
+                    </thead>
+                    <tr ng-repeat="board in boards | orderBy: 'name' | filter: search.val |  filter:boardTypeMatch" >
+                        <td>check</td>
+                        <td>{{board.name}}</td>
+                        <td>{{board.description}}</td>
+                        <td>owner</td>
+                    </tr>
+                </table>
+
+            <br>
+        </md-tab>
+
+        <md-tab label="Permissions">
+            <br>
+            <span class="md-input-group md-input-focused"><label>Board Permissions</label></span>
+            <md-radio-group ng-model="people2Boards.boardPermissions" name="BoardPermissions" required>
+                <md-radio-button value="all" aria-input-label="Allow everyone to view, upload & create">
+                    Allow everyone to view, upload & create</md-radio-button>
+                <md-radio-button value="view" aria-input-label="Allow everyone to view">
+                    Allow everyone to view</md-radio-button>
+            </md-radio-group>
+
+            <br>
+            <md-button type="submit" ng-disabled="messageForm.$invalid"  class="md-raised md-primary">Save</md-button>
+        </md-tab>
+
+        <!--ng-disabled="messageForm.$invalid"-->
+    </md-tabs>
+</form>

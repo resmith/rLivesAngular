@@ -1,7 +1,8 @@
 
     <form name="boardForm" novalidate ng-submit="createBoard(board)">
 
-        <h2> Define Board: {{ board.name}} </h2>
+        <h2> Define Board </h2>
+        <!--: {{ board.name}}-->
 
         <h3 class="{{messageClass}}"> {{ message }} </h3>
 
@@ -25,10 +26,12 @@
             </div>-->
         </md-input-container>
 
-        <span class="md-input-group md-input-focused"><label>Board Type</label></span>
-        <md-select data-ng-model="board.type" name="board.type" required>
-            <md-option data-ng-value="boardType.value" data-ng-repeat="boardType in boardTypes">{{ boardType.label }}</md-option>
-        </md-select>
+        <span style="padding-bottom: 0; padding-top: 0; margin-bottom: 0; margin-top: 0">
+            <span class="md-input-group md-input-focused"><label>Board Type</label></span>
+            <md-select data-ng-model="board.type" name="board.type" required>
+                <md-option data-ng-value="boardType.value" data-ng-repeat="boardType in boardTypes">{{ boardType.label }}</md-option>
+            </md-select>
+        </span>
 
         <br>
         <br>

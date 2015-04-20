@@ -86,11 +86,20 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         })
 
         .state('link_people2boards', {
-            url: "/message",
-            templateUrl: "./components/message/message_define.html",
-            controller: 'peopleListCtrl'
+            url: "/link_people2boards",
+            templateUrl: "./components/link/link_people2boards.html",
+            controller: 'LinkPeople2BoardsCtrl as ctrl'
         })
-
+        .state('link_board2boards', {
+            url: "/link_board2boards",
+            templateUrl: "./components/link/link_board2boards.html",
+            controller: 'linkCtrl as ctrl'
+        })
+        .state('link_board2web', {
+            url: "/link_board2web",
+            templateUrl: "./components/link/link_board2.html",
+            controller: 'linkCtrl as ctrl'
+        })
     ;
 }]);
 
@@ -117,7 +126,7 @@ myApp.config(['$mdThemingProvider', '$mdIconProvider',
 
         .icon("add"     , "./assets/svg/ic_add_circle_24px.svg"       , 48)
         .icon("link"     , "./assets/svg/ic_link_24px.svg"       , 48)
-        .icon("view"     , "./assets/svg/ic_eye_24px.svg"       , 48)
+        .icon("view"     , "./assets/svg/ic_eye_24px.svg"       , 48);
 
 
     $mdThemingProvider.theme('default')
@@ -217,7 +226,7 @@ myApp.controller('defaultCtrl', function($scope, $mdToast, $animate) {
             alert('You clicked \'OK\'.');
         });
     };
-})
+});
 myApp.controller('ToastCtrl', function($scope, $mdToast) {
         $scope.closeToast = function() {
             $mdToast.hide();
