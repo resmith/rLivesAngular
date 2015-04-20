@@ -44,8 +44,8 @@ myApp.controller("LinkPeople2BoardsCtrl", function($scope, BoardUrl) {
 
     $scope.boardPermissions = [
         {"value": "View", "label": "View"},
-        {"value": "Update", "label": "Update"}
-
+        {"value": "create", "label": "Create/Update"},
+        {"value": "invite", "label": "Invite Others & Create/Update"}
     ];
 
 
